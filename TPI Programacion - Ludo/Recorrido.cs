@@ -9,7 +9,6 @@ namespace TPI_Programacion___Ludo
     public class Recorrido
     {
         private LinkedList<Posicion> posiciones;
-        public Posicion posicionActual;
         public Recorrido()
         {
             posiciones = new LinkedList<Posicion>();
@@ -76,23 +75,29 @@ namespace TPI_Programacion___Ludo
             posiciones.AddLast(new Posicion(6,3));
             posiciones.AddLast(new Posicion(6,2));
             posiciones.AddLast(new Posicion(6,1));
-
-            posicionActual = posiciones.First();
         }
 
         public LinkedList<Posicion> Posiciones { get => posiciones; set => posiciones = value;}
 
-        public void ProximaPosicion()
+        public Posicion Posicion
         {
-            LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionActual);
+            get => default;
+            set
+            {
+            }
+        }
+
+        public void ProximaPosicion(Posicion posicionFicha)
+        {
+            LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionFicha);
 
             if(nodoActual.Next != null)
             {
-                posicionActual = nodoActual.Next.Value;
+                posicionFicha = nodoActual.Next.Value;
             }
             else
             {
-                posicionActual = posiciones.First();
+                posicionFicha = posiciones.First();
             }
 
         }

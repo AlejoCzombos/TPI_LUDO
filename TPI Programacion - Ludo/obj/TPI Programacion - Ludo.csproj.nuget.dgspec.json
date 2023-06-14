@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Alejo\\Programacion\\C#\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj": {}
+    "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj": {}
   },
   "projects": {
-    "C:\\Alejo\\Programacion\\C#\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj": {
+    "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Alejo\\Programacion\\C#\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+        "projectUniqueName": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
         "projectName": "TPI Programacion - Ludo",
-        "projectPath": "C:\\Alejo\\Programacion\\C#\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+        "projectPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
         "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
-        "outputPath": "C:\\Alejo\\Programacion\\C#\\TPI Programacion - Ludo\\obj\\",
+        "outputPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",

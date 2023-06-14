@@ -16,3 +16,21 @@ C:\Alejo\Programacion\C#\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Pr
 C:\Alejo\Programacion\C#\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.genruntimeconfig.cache
 C:\Alejo\Programacion\C#\TPI Programacion - Ludo\obj\Debug\net6.0-windows\ref\TPI Programacion - Ludo.dll
 C:\Alejo\Programacion\C#\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.Formulario.resources
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\bin\Debug\net6.0-windows\TPI Programacion - Ludo.exe
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\bin\Debug\net6.0-windows\TPI Programacion - Ludo.deps.json
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\bin\Debug\net6.0-windows\TPI Programacion - Ludo.runtimeconfig.json
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\bin\Debug\net6.0-windows\TPI Programacion - Ludo.dll
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\bin\Debug\net6.0-windows\TPI Programacion - Ludo.pdb
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.csproj.AssemblyReference.cache
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.Formulario.resources
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.Properties.Resources.resources
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.csproj.GenerateResource.cache
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.AssemblyInfoInputs.cache
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.AssemblyInfo.cs
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.csproj.CoreCompileInputs.cache
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.dll
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\refint\TPI Programacion - Ludo.dll
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.pdb
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI Programacion - Ludo.genruntimeconfig.cache
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\ref\TPI Programacion - Ludo.dll

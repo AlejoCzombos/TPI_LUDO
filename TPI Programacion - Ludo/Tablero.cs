@@ -23,8 +23,16 @@ namespace TPI_Programacion___Ludo
         }
         public void moverFicha()
         {
-            Formm.panelTablero.SetCellPosition( Formm.fichaRoja, new TableLayoutPanelCellPosition(recorrido.posicionActual.Columna, recorrido.posicionActual.Fila));
-            recorrido.ProximaPosicion();
+            //Formm.panelTablero.SetCellPosition( Formm.fichaRoja, new TableLayoutPanelCellPosition(recorrido.posicionActual.Columna, recorrido.posicionActual.Fila));
+            //recorrido.ProximaPosicion();
+        }
+
+        public Recorrido Recorrido
+        {
+            get => default;
+            set
+            {
+            }
         }
     }
 }

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TPI_Programacion___Ludo.Ficha">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAQEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ficha.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPI_Programacion___Ludo.Posicion">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAgAAAAIAA=</HashCode>
+      <FileName>Posicion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPI_Programacion___Ludo.Program">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPI_Programacion___Ludo.Recorrido">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAwAAAAIAAAAABAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Recorrido.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Posicion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TPI_Programacion___Ludo.Tablero">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AxAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Tablero.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Recorrido" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TPI_Programacion___Ludo.Formulario">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAACAACAAAACAAAgAgAAABAAAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
