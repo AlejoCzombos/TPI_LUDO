@@ -87,17 +87,17 @@ namespace TPI_Programacion___Ludo
             }
         }
 
-        public void ProximaPosicion(Posicion posicionFicha)
+        public Posicion ProximaPosicion(Posicion posicionFicha)
         {
             LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionFicha);
 
             if(nodoActual.Next != null)
             {
-                posicionFicha = nodoActual.Next.Value;
+                return nodoActual.Next.Value;
             }
             else
             {
-                posicionFicha = posiciones.First();
+                return posiciones.First();
             }
 
         }
