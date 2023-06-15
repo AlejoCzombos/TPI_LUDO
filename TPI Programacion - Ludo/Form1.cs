@@ -97,5 +97,10 @@ namespace TPI_Programacion___Ludo
         {
 
         }
+
+        private void imagenDado_Click(object sender, EventArgs e)
+        {
+            tablero.TirarDado();
+        }
     }
 }

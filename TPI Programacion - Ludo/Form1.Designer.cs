@@ -45,6 +45,7 @@
             this.fichaAmarilla1 = new System.Windows.Forms.PictureBox();
             this.fichaAmarilla2 = new System.Windows.Forms.PictureBox();
             this.fichaAmarilla3 = new System.Windows.Forms.PictureBox();
+            this.imagenDado = new System.Windows.Forms.PictureBox();
             this.panelTablero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fichaRoja0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaRoja1)).BeginInit();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenDado)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTablero
@@ -379,12 +381,29 @@
             this.fichaAmarilla3.TabStop = false;
             this.fichaAmarilla3.Click += new System.EventHandler(this.fichaAmarilla3_Click);
             // 
+            // imagenDado
+            // 
+            this.imagenDado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imagenDado.BackColor = System.Drawing.Color.Transparent;
+            this.imagenDado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imagenDado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.imagenDado.Image = global::TPI_Programacion___Ludo.Properties.Resources._1;
+            this.imagenDado.Location = new System.Drawing.Point(280, 280);
+            this.imagenDado.Name = "imagenDado";
+            this.imagenDado.Size = new System.Drawing.Size(100, 100);
+            this.imagenDado.TabIndex = 2;
+            this.imagenDado.TabStop = false;
+            this.imagenDado.Click += new System.EventHandler(this.imagenDado_Click);
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(661, 662);
+            this.Controls.Add(this.imagenDado);
             this.Controls.Add(this.panelTablero);
             this.MaximumSize = new System.Drawing.Size(677, 701);
             this.MinimumSize = new System.Drawing.Size(677, 701);
@@ -408,6 +427,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaAmarilla3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenDado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -430,5 +450,6 @@
         public PictureBox fichaAmarilla1;
         public PictureBox fichaAmarilla2;
         public PictureBox fichaAmarilla3;
+        public PictureBox imagenDado;
     }
 }

@@ -4,38 +4,32 @@ namespace TPI_Programacion___Ludo
 {
     public class Dado
 	{
-        public static int tirarDado()
+        private Random rnd;
+        private PictureBox imagenDado;
+        private String[] pathsImagenes;
+
+        public Dado(PictureBox imagenDado) 
         {
-            Random rnd = new Random();
+            this.imagenDado = imagenDado;
+            rnd = new Random();
+            pathsImagenes = ObtenerPaths();
+        }
 
-            int dado = rnd.Next(1, 7);
-
-            switch (dado)
+        private String[] ObtenerPaths()
+        {
+            String[] paths = new String[6];
+            for(int i = 0; i < 6; i++)
             {
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-
-                    break;
-                case 6:
-
-                    break;
-                default:
-                    Console.WriteLine("Error");
-                    break;
-
+                paths[i] = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, $"Imagenes\\{(i+1)}.png");
             }
-            return 0;
+            return paths;
+        }
+
+        public void tirarDado()
+        {
+            int resultado = rnd.Next(1, 7);
+
+            imagenDado.ImageLocation = pathsImagenes[(resultado-1)];
         }
 	}
 }

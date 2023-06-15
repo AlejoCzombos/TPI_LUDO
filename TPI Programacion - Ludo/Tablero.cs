@@ -9,6 +9,7 @@ namespace TPI_Programacion___Ludo
     public class Tablero
     {
         private Formulario form;
+        private Dado dado;
         private Jugador jugadorVerde;
         private Jugador jugadorAmarillo;
         private Jugador jugadorAzul;
@@ -59,11 +60,20 @@ namespace TPI_Programacion___Ludo
                     new Ficha(Formularioo.fichaRoja2, new Posicion(2,12), new Posicion(6,13)),
                     new Ficha(Formularioo.fichaRoja3, new Posicion(3,12), new Posicion(6,13))
                 });
+
+
+            dado = new Dado(Formularioo.imagenDado);
+
         }
         public void moverFicha(int i)
         {
             jugadorRojo.moverFicha(i, 5);
             Formularioo.panelTablero.SetCellPosition(jugadorRojo.Fichas[i].Imagen, new TableLayoutPanelCellPosition(jugadorRojo.Fichas[i].PosicionActual.Columna, jugadorRojo.Fichas[i].PosicionActual.Fila));
+        }
+
+        public void TirarDado()
+        {
+            dado.tirarDado();
         }
     }
 }
