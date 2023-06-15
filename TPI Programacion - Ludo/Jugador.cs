@@ -6,26 +6,38 @@ using System.Threading.Tasks;
 
 namespace TPI_Programacion___Ludo
 {
+
+    public enum Colores
+    {
+        Verde,
+        Amarillo,
+        Azul,
+        Rojo
+    }
+
     internal class Jugador
     {
-        public Jugador(Enum colores) 
-        {
-
-        }
-
-        private Ficha[] fichas = new Ficha[4];
-
-        //private enum color = 
-
-        private Recorrido recorrido = new Recorrido();
-
+        private Recorrido recorrido;
+        //private RecorridoFinal recorridoFinal = new RecorridoFinal();
+        private Ficha[] fichas;
+        private Colores color;
+        private Posicion primeraPosicion;
         public Ficha[] Fichas { get => fichas; }
 
-        //private RecorridoFinal recorridoFinal = new RecorridoFinal();
+        public Jugador( Colores color, Posicion primeraPosicion, Ficha[] fichas)
+        {
+            this.color = color;
+            this.primeraPosicion= primeraPosicion;
+            recorrido = new Recorrido();
+            this.fichas = fichas;
+        }
 
         public void moverFicha(int indiceFicha, int pasos)
         {
-            //recorrido.ProximaPosicion();
+            for(int i = 0; i < pasos; i++)
+            {
+                recorrido.ProximaPosicion( fichas[indiceFicha].PosicionActual );
+            }
         }
     }
 }
