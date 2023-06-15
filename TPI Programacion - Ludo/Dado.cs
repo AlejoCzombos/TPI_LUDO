@@ -8,7 +8,7 @@ namespace TPI_Programacion___Ludo
         {
             Random rnd = new Random();
 
-            int dado = rnd.Next(1, 6);
+            int dado = rnd.Next(1, 7);
 
             switch (dado)
             {
@@ -32,9 +32,10 @@ namespace TPI_Programacion___Ludo
                     break;
                 default:
                     Console.WriteLine("Error");
-                    break
+                    break;
 
             }
+            return 0;
         }
 	}
 }
