@@ -18,7 +18,7 @@ namespace TPI_Programacion___Ludo
     internal class Jugador
     {
         private Recorrido recorrido;
-        //private RecorridoFinal recorridoFinal = new RecorridoFinal();
+        private RecorridoFinal recorridoFinal;
         private Ficha[] fichas;
         private Colores color;
         private Posicion primeraPosicion;
@@ -29,6 +29,7 @@ namespace TPI_Programacion___Ludo
             this.color = color;
             this.primeraPosicion= primeraPosicion;
             recorrido = new Recorrido();
+            recorridoFinal = new RecorridoFinal(color);
             this.fichas = fichas;
         }
 
