@@ -77,17 +77,9 @@ namespace TPI_Programacion___Ludo
             posiciones.AddLast(new Posicion(6,1));
         }
 
-        public LinkedList<Posicion> Posiciones { get => posiciones; set => posiciones = value;}
+        public LinkedList<Posicion> Posiciones { get => posiciones; set => posiciones = value; }
 
-        public Posicion Posicion
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Posicion ProximaPosicion(Posicion posicionFicha)
+        public virtual Posicion ProximaPosicion(Posicion posicionFicha)
         {
             LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionFicha);
 
