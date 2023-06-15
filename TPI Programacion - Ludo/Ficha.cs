@@ -14,7 +14,7 @@ namespace TPI_Programacion___Ludo
         public Ficha(PictureBox imagen, Posicion posicionActual)
         {
             this.imagen = imagen;
-            this.posicionActual= posicionActual;
+            this.posicionActual = posicionActual;
         }
 
         public PictureBox Imagen { get => imagen; set => imagen = value; }
