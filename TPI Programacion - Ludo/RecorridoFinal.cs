@@ -43,16 +43,16 @@ namespace TPI_Programacion___Ludo
         {
             switch(color) 
             {
-                case 0:
+                case Colores.Verde:
                     Posiciones = Verde; 
                     break;
-                case 1:
+                case Colores.Amarillo:
                     Posiciones = Amarillo;
                     break;
-                case 2:
+                case Colores.Azul:
                     Posiciones = Azul;
                     break;
-                case 3:
+                case Colores.Rojo:
                     Posiciones = Rojo;
                     break;
                 default:

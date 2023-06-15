@@ -12,7 +12,7 @@ namespace TPI_Programacion___Ludo
         {
             Tablero tab = new Tablero();
             Formulario formularioPrincipal = new Formulario(tab);
-            tab.Formm = formularioPrincipal;
+            tab.Formulario = formularioPrincipal;
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();

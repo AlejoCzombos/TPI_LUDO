@@ -14,7 +14,13 @@ namespace TPI_Programacion___Ludo
             posiciones = new LinkedList<Posicion>();
 
             //Instanciar todas las posiciones del recorrido
+
             //Sector Amarillo
+            posiciones.AddLast(new Posicion(6,5));
+            posiciones.AddLast(new Posicion(6,4));
+            posiciones.AddLast(new Posicion(6,3));
+            posiciones.AddLast(new Posicion(6,2));
+            posiciones.AddLast(new Posicion(6,1));
             posiciones.AddLast(new Posicion(6,0));
             posiciones.AddLast(new Posicion(7,0));
             posiciones.AddLast(new Posicion(8,0));
@@ -68,22 +74,15 @@ namespace TPI_Programacion___Ludo
             posiciones.AddLast(new Posicion(3,6));
             posiciones.AddLast(new Posicion(4,6));
             posiciones.AddLast(new Posicion(5,6));
-
-            //Izquierda Amarillo
-            posiciones.AddLast(new Posicion(6,5));
-            posiciones.AddLast(new Posicion(6,4));
-            posiciones.AddLast(new Posicion(6,3));
-            posiciones.AddLast(new Posicion(6,2));
-            posiciones.AddLast(new Posicion(6,1));
         }
 
         public LinkedList<Posicion> Posiciones { get => posiciones; set => posiciones = value; }
 
-        public virtual Posicion ProximaPosicion(Posicion posicionFicha)
+        public Posicion ProximaPosicion(Posicion posicionFicha)
         {
             LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionFicha);
 
-            if(nodoActual.Next != null)
+            if (nodoActual.Next != null)
             {
                 return nodoActual.Next.Value;
             }

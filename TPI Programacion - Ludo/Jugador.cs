@@ -37,7 +37,7 @@ namespace TPI_Programacion___Ludo
         {
             for(int i = 0; i < pasos; i++)
             {
-                recorrido.ProximaPosicion( fichas[indiceFicha].PosicionActual );
+                fichas[indiceFicha].PosicionActual = recorrido.ProximaPosicion( fichas[indiceFicha].PosicionActual );
             }
         }
     }

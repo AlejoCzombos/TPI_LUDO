@@ -14,7 +14,27 @@ namespace TPI_Programacion___Ludo
 
         private void fichaRoja_Click_1(object sender, EventArgs e)
         {
-            tablero.moverFicha();
+            tablero.moverFicha(0);
+        }
+
+        private void InCargaFormulario(object sender, EventArgs e)
+        {
+            tablero.IncializarValores();
+        }
+
+        private void fichaRoja2_Click(object sender, EventArgs e)
+        {
+            tablero.moverFicha(1);
+        }
+
+        private void fichaRoja3_Click(object sender, EventArgs e)
+        {
+            tablero.moverFicha(2);
+        }
+
+        private void fichaRoja4_Click(object sender, EventArgs e)
+        {
+            tablero.moverFicha(3);
         }
     }
 }
