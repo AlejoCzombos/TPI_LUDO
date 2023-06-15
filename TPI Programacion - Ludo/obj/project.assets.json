@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\alejo\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\UNI\\PROG3\\Ludo\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
       "projectName": "TPI Programacion - Ludo",
-      "projectPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
-      "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
-      "outputPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\UNI\\PROG3\\Ludo\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\UNI\\PROG3\\Ludo\\TPI_LUDO\\TPI Programacion - Ludo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
