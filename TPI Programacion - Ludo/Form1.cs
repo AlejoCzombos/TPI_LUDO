@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Logging;
 using System.Windows.Forms;
 
 namespace TPI_Programacion___Ludo
@@ -5,6 +6,8 @@ namespace TPI_Programacion___Ludo
     public partial class Formulario : Form
     {
         private Tablero tablero;
+        private bool fichaSeleccionada = false;
+        private bool seleccion = false;
 
         public Formulario(Tablero tablero)
         {
@@ -40,7 +43,7 @@ namespace TPI_Programacion___Ludo
 
         private void fichaRoja0_Click(object sender, EventArgs e)
         {
-
+            tablero.moverFicha(0);
         }
 
         private void fichaRoja1_Click(object sender, EventArgs e)
@@ -101,6 +104,16 @@ namespace TPI_Programacion___Ludo
         private void imagenDado_Click(object sender, EventArgs e)
         {
             tablero.TirarDado();
+        }
+
+        private void ticksSeleccion(object sender, EventArgs e)
+        {
+            //if (fichaSeleccionada)
+            //{
+            //    fichaRoja0.BackgroundImage = seleccion ? Properties.Resources.FichaRoja_Seleccionada : Properties.Resources.FichaRoja;
+            //    seleccion = !seleccion;
+            //}
+
         }
     }
 }

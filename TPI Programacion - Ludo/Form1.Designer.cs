@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelTablero = new System.Windows.Forms.TableLayoutPanel();
             this.fichaRoja0 = new System.Windows.Forms.PictureBox();
             this.fichaRoja1 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
             this.fichaAmarilla2 = new System.Windows.Forms.PictureBox();
             this.fichaAmarilla3 = new System.Windows.Forms.PictureBox();
             this.imagenDado = new System.Windows.Forms.PictureBox();
+            this.timerSeleccionFicha = new System.Windows.Forms.Timer(this.components);
             this.panelTablero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fichaRoja0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fichaRoja1)).BeginInit();
@@ -397,6 +399,12 @@
             this.imagenDado.TabStop = false;
             this.imagenDado.Click += new System.EventHandler(this.imagenDado_Click);
             // 
+            // timerSeleccionFicha
+            // 
+            this.timerSeleccionFicha.Enabled = true;
+            this.timerSeleccionFicha.Interval = 500;
+            this.timerSeleccionFicha.Tick += new System.EventHandler(this.ticksSeleccion);
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -405,10 +413,11 @@
             this.ClientSize = new System.Drawing.Size(661, 662);
             this.Controls.Add(this.imagenDado);
             this.Controls.Add(this.panelTablero);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.MaximumSize = new System.Drawing.Size(677, 701);
             this.MinimumSize = new System.Drawing.Size(677, 701);
             this.Name = "Formulario";
-            this.Text = "Form1";
+            this.Text = "LUDO.NET";
             this.Load += new System.EventHandler(this.InCargaFormulario);
             this.panelTablero.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fichaRoja0)).EndInit();
@@ -451,5 +460,6 @@
         public PictureBox fichaAmarilla2;
         public PictureBox fichaAmarilla3;
         public PictureBox imagenDado;
+        private System.Windows.Forms.Timer timerSeleccionFicha;
     }
 }

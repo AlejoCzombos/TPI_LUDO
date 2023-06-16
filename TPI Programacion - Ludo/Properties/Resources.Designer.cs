@@ -103,6 +103,16 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FichaRoja_Seleccionada {
+            get {
+                object obj = ResourceManager.GetObject("FichaRoja Seleccionada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaVerde {
             get {
                 object obj = ResourceManager.GetObject("FichaVerde", resourceCulture);
@@ -116,26 +126,6 @@ namespace TPI_Programacion___Ludo.Properties {
         internal static System.Drawing.Bitmap LudoTablero {
             get {
                 object obj = ResourceManager.GetObject("LudoTablero", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TableroLudo {
-            get {
-                object obj = ResourceManager.GetObject("TableroLudo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TableroLudo1 {
-            get {
-                object obj = ResourceManager.GetObject("TableroLudo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -67,7 +67,7 @@ namespace TPI_Programacion___Ludo
         }
         public void moverFicha(int i)
         {
-            jugadorRojo.moverFicha(i, 5);
+            jugadorRojo.moverFicha(i, 1);
             Formularioo.panelTablero.SetCellPosition(jugadorRojo.Fichas[i].Imagen, new TableLayoutPanelCellPosition(jugadorRojo.Fichas[i].PosicionActual.Columna, jugadorRojo.Fichas[i].PosicionActual.Fila));
         }
 
