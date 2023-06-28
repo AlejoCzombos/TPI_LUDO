@@ -44,7 +44,7 @@ namespace TPI_Programacion___Ludo
         int numeroDado = 0;
         int indiceFichaJugador;
 
-        bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true;
+        bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true, puedeCambiaTurno = false;
         public Tablero()
         {
             formulario = Program.formulario;
@@ -53,7 +53,7 @@ namespace TPI_Programacion___Ludo
 
             recorrido = new Recorrido();
             jugadores = new Jugador[]{
-                jugadorRojo, jugadorVerde, jugadorAzul, jugadorAmarillo
+                jugadorRojo, jugadorVerde,  jugadorAmarillo, jugadorAzul
             };
 
             timer = new Timer();
@@ -75,7 +75,10 @@ namespace TPI_Programacion___Ludo
             }
             timer.Stop();
 
-            CambiarTurno();
+            if (puedeCambiaTurno)
+            {
+                CambiarTurno();
+            }
         }
 
         public void TirarDado(Dado dado)
@@ -129,17 +132,26 @@ namespace TPI_Programacion___Ludo
 
         public void MoverFicha()
         {
-            //PROVISORIO CAMBIAR EL JUGADOR DEPENDIENDO DEL TURNO
             Jugador jugador = jugadores[(int)turnoActual];
 
             Ficha ficha = jugador.Fichas[indiceFichaJugador];
 
             avanza = true;
 
-            if (ficha.EstaEnCasa)
+            if (ficha.EstaEnCasa && (numeroDado == 6 || numeroDado == 1))
             {
                 ficha.PosicionFutura = jugador.PrimeraPosicion;
                 ficha.EstaEnCasa = false;
+                numeroDado = 1;
+
+                puedeSeleccionarDado = true;
+                puedeCambiaTurno = false;
+            }
+            else if(ficha.EstaEnCasa && (numeroDado > 1 && numeroDado < 6))
+            {
+                puedeCambiaTurno = true;
+                numeroDado = 0;
+                return;
             }
             else
             {
@@ -183,10 +195,20 @@ namespace TPI_Programacion___Ludo
             {
                 ficha.PosicionActual = ficha.PosicionFutura;
 
-                ficha.Imagen.Show();
                 ficha.Imagen.Location = ficha.PosicionActual;
                 numeroDado--;
+
+                if(numeroDado == 0 && ficha.PosicionActual == jugador.PrimeraPosicion)
+                {
+                    puedeSeleccionarDado = true;
+                }
+                else
+                {
+                    puedeCambiaTurno = true;
+                }
             }
+
+            
         }
 
         private void CambiarDado()
