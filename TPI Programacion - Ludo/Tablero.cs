@@ -8,72 +8,89 @@ namespace TPI_Programacion___Ludo
 {
     public class Tablero
     {
-        private Formulario form;
+        private FormularioPrincipal formulario;
         private Dado dado;
+        private Recorrido recorrido;
         private Jugador jugadorVerde;
         private Jugador jugadorAmarillo;
         private Jugador jugadorAzul;
         private Jugador jugadorRojo;
-        public Formulario Formularioo
-        {
-            get { return form; }
-            set { form = value; }
-        }
+        private List<Ficha> fichas;
+        bool avanza = true;
         public Tablero()
         {
+            formulario = Program.formulario;
+
+            JugadorRojo = new Jugador(new Point(268, 266), Colores.Rojo,
+                new Ficha[] {
+                    new Ficha(formulario.fichaRoja0, Colores.Rojo, new Point(285, 164)),
+                    new Ficha(formulario.fichaRoja1, Colores.Rojo, new Point(374, 164)),
+                    new Ficha(formulario.fichaRoja2, Colores.Rojo, new Point(374, 75)),
+                    new Ficha(formulario.fichaRoja3, Colores.Rojo, new Point(285, 75))
+                });
+            //dado = new Dado();
+            recorrido = new Recorrido();
+            fichas = new List<Ficha>();
+
+            fichas.Add(JugadorRojo.Fichas[0]);
+            fichas.Add(JugadorRojo.Fichas[1]);
+            fichas.Add(JugadorRojo.Fichas[2]);
+            fichas.Add(JugadorRojo.Fichas[3]);
         }
-        public void IncializarValores()
+
+        internal Jugador JugadorRojo { get => jugadorRojo; set => jugadorRojo = value; }
+        internal Jugador JugadorAzul { get => jugadorAzul; set => jugadorAzul = value; }
+        internal Jugador JugadorAmarillo { get => jugadorAmarillo; set => jugadorAmarillo = value; }
+        internal Jugador JugadorVerde { get => jugadorVerde; set => jugadorVerde = value; }
+
+        public void MoverFicha(Jugador jugador, int indiceFicha)
         {
-            jugadorVerde = new Jugador(
-                Colores.Verde,
-                new Posicion(1, 6),
-                new Ficha[] {
-                    new Ficha(Formularioo.fichaVerde0, new Posicion(2,2), new Posicion(1,6)),
-                    new Ficha(Formularioo.fichaVerde1, new Posicion(3,2), new Posicion(1,6)),
-                    new Ficha(Formularioo.fichaVerde2, new Posicion(2,3), new Posicion(1,6)),
-                    new Ficha(Formularioo.fichaVerde3, new Posicion(3,3), new Posicion(1,6))
-                });
-            jugadorAmarillo = new Jugador(
-                Colores.Verde,
-                new Posicion(8, 1),
-                new Ficha[] {
-                    new Ficha(Formularioo.fichaAmarilla0, new Posicion(11,2), new Posicion(8,1)),
-                    new Ficha(Formularioo.fichaAmarilla1, new Posicion(12,2), new Posicion(8,1)),
-                    new Ficha(Formularioo.fichaAmarilla2, new Posicion(11,3), new Posicion(8,1)),
-                    new Ficha(Formularioo.fichaAmarilla3, new Posicion(12,3), new Posicion(8,1))
-                });
-            jugadorAzul = new Jugador(
-                Colores.Verde,
-                new Posicion(13, 8),
-                new Ficha[] {
-                    new Ficha(Formularioo.fichaAzul0, new Posicion(11,11), new Posicion(13,8)),
-                    new Ficha(Formularioo.fichaAzul1, new Posicion(12,11), new Posicion(13,8)),
-                    new Ficha(Formularioo.fichaAzul2, new Posicion(12,12), new Posicion(13,8)),
-                    new Ficha(Formularioo.fichaAzul3, new Posicion(11,12), new Posicion(13,8))
-                });
-            jugadorRojo = new Jugador(
-                Colores.Rojo,
-                new Posicion(6, 13),
-                new Ficha[] {
-                    new Ficha(Formularioo.fichaRoja0, new Posicion(2,11), new Posicion(6,13)),
-                    new Ficha(Formularioo.fichaRoja1, new Posicion(3,11), new Posicion(6,13)),
-                    new Ficha(Formularioo.fichaRoja2, new Posicion(2,12), new Posicion(6,13)),
-                    new Ficha(Formularioo.fichaRoja3, new Posicion(3,12), new Posicion(6,13))
-                });
+            Ficha ficha = jugador.Fichas[indiceFicha];
+
+            avanza = true;
 
 
-            dado = new Dado(Formularioo.imagenDado);
+            if (ficha.EstaEnCasa)
+            {
+                ficha.PosicionFutura = jugador.PrimeraPosicion;
+                ficha.EstaEnCasa = false;
+            }
+            else
+            {
+                ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
+            }
 
+            foreach (Ficha fi in fichas)
+            {
+                //Comprobacion de comer fichas
+                if (ficha == fi)
+                {
+                    continue;
+                }
+                //Comprobar si en la posicion futura hay una ficha del mismo color
+                else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color == fi.Color)
+                {
+                    avanza = false;
+                    break;
+                }
+                //Compueba si en la posicion futura hay una ficha del otro color
+                else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color != fi.Color)
+                {
+                    avanza = true;
+                    ficha.Imagen.Location = ficha.PosicionCasa;
+                    ficha.EstaEnCasa = true;
+                    break;
+                }
+
+                //Si la posicion futura esta libre se avanza
+                if (avanza)
+                {
+                    ficha.PosicionActual = ficha.PosicionFutura;
+
+                    ficha.Imagen.Location = ficha.PosicionActual;
+                }
+            }
         }
-        public void moverFicha(int i)
-        {
-            jugadorRojo.moverFicha(i, 1);
-            Formularioo.panelTablero.SetCellPosition(jugadorRojo.Fichas[i].Imagen, new TableLayoutPanelCellPosition(jugadorRojo.Fichas[i].PosicionActual.Columna, jugadorRojo.Fichas[i].PosicionActual.Fila));
-        }
 
-        public void TirarDado()
-        {
-            dado.tirarDado();
-        }
     }
 }

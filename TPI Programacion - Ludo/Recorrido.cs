@@ -8,79 +8,79 @@ namespace TPI_Programacion___Ludo
 {
     public class Recorrido
     {
-        private LinkedList<Posicion> posiciones;
+        private LinkedList<Point> posiciones;
         public Recorrido()
         {
-            posiciones = new LinkedList<Posicion>();
+            posiciones = new LinkedList<Point>();
 
             //Instanciar todas las posiciones del recorrido
+            
+            //Recorrido Verde
+            posiciones.AddLast(new Point(477, 224));
+            posiciones.AddLast(new Point(477, 182));
+            posiciones.AddLast(new Point(477, 140));
+            posiciones.AddLast(new Point(477, 98));//Estrella
+            posiciones.AddLast(new Point(477, 56));
+            posiciones.AddLast(new Point(477, 14));
+            posiciones.AddLast(new Point(519, 14));
+            posiciones.AddLast(new Point(561, 14));
+            posiciones.AddLast(new Point(561, 56));//Salida
+            posiciones.AddLast(new Point(561, 98));
+            posiciones.AddLast(new Point(561, 140));
+            posiciones.AddLast(new Point(561, 182));
+            posiciones.AddLast(new Point(561, 224));
 
             //Sector Amarillo
-            posiciones.AddLast(new Posicion(6,5));
-            posiciones.AddLast(new Posicion(6,4));
-            posiciones.AddLast(new Posicion(6,3));
-            posiciones.AddLast(new Posicion(6,2));
-            posiciones.AddLast(new Posicion(6,1));
-            posiciones.AddLast(new Posicion(6,0));
-            posiciones.AddLast(new Posicion(7,0));
-            posiciones.AddLast(new Posicion(8,0));
-            posiciones.AddLast(new Posicion(8,1));
-            posiciones.AddLast(new Posicion(8,2));
-            posiciones.AddLast(new Posicion(8,3));
-            posiciones.AddLast(new Posicion(8,4));
-            posiciones.AddLast(new Posicion(8,5));
+            posiciones.AddLast(new Point(603,266));
+            posiciones.AddLast(new Point(645, 266));
+            posiciones.AddLast(new Point(687, 266));
+            posiciones.AddLast(new Point(729, 266));//Estrella
+            posiciones.AddLast(new Point(771, 266));
+            posiciones.AddLast(new Point(813, 266));
+            posiciones.AddLast(new Point(813,308));
+            posiciones.AddLast(new Point(813,350));
+            posiciones.AddLast(new Point(771, 350));//Salida
+            posiciones.AddLast(new Point(729, 350));
+            posiciones.AddLast(new Point(687, 350));
+            posiciones.AddLast(new Point(645, 350));
+            posiciones.AddLast(new Point(603, 350));
 
             //Recorrido Azul
-            posiciones.AddLast(new Posicion(9,6));
-            posiciones.AddLast(new Posicion(10,6));
-            posiciones.AddLast(new Posicion(11,6));
-            posiciones.AddLast(new Posicion(12,6));
-            posiciones.AddLast(new Posicion(13,6));
-            posiciones.AddLast(new Posicion(14,6));
-            posiciones.AddLast(new Posicion(14,7));
-            posiciones.AddLast(new Posicion(14,8));
-            posiciones.AddLast(new Posicion(13,8));
-            posiciones.AddLast(new Posicion(12,8));
-            posiciones.AddLast(new Posicion(11,8));
-            posiciones.AddLast(new Posicion(10,8));
-            posiciones.AddLast(new Posicion(9,8));
+            posiciones.AddLast(new Point(561, 392));
+            posiciones.AddLast(new Point(561, 434));
+            posiciones.AddLast(new Point(561, 476));
+            posiciones.AddLast(new Point(561, 518));//Estrella
+            posiciones.AddLast(new Point(561, 560));
+            posiciones.AddLast(new Point(561, 602));
+            posiciones.AddLast(new Point(519,602));
+            posiciones.AddLast(new Point(477,602));
+            posiciones.AddLast(new Point(477, 560));//Salida
+            posiciones.AddLast(new Point(477, 518));
+            posiciones.AddLast(new Point(477, 476));
+            posiciones.AddLast(new Point(477, 434));
+            posiciones.AddLast(new Point(477, 392));
 
             //Recorrido Rojo
-            posiciones.AddLast(new Posicion(8,9));
-            posiciones.AddLast(new Posicion(8,10));
-            posiciones.AddLast(new Posicion(8,11));
-            posiciones.AddLast(new Posicion(8,12));
-            posiciones.AddLast(new Posicion(8,13));
-            posiciones.AddLast(new Posicion(8,14));
-            posiciones.AddLast(new Posicion(7,14));
-            posiciones.AddLast(new Posicion(6,14));
-            posiciones.AddLast(new Posicion(6,13));
-            posiciones.AddLast(new Posicion(6,12));
-            posiciones.AddLast(new Posicion(6,11));
-            posiciones.AddLast(new Posicion(6,10));
-            posiciones.AddLast(new Posicion(6,9));
 
-            //Recorrido Verde
-            posiciones.AddLast(new Posicion(5,8));
-            posiciones.AddLast(new Posicion(4,8));
-            posiciones.AddLast(new Posicion(3,8));
-            posiciones.AddLast(new Posicion(2,8));
-            posiciones.AddLast(new Posicion(1,8));
-            posiciones.AddLast(new Posicion(0,8));
-            posiciones.AddLast(new Posicion(0,7));
-            posiciones.AddLast(new Posicion(0,6));
-            posiciones.AddLast(new Posicion(1,6));
-            posiciones.AddLast(new Posicion(2,6));
-            posiciones.AddLast(new Posicion(3,6));
-            posiciones.AddLast(new Posicion(4,6));
-            posiciones.AddLast(new Posicion(5,6));
+
+            posiciones.AddLast(new Point(435, 350));
+            posiciones.AddLast(new Point(393, 350));
+            posiciones.AddLast(new Point(351, 350));
+            posiciones.AddLast(new Point(310, 350));//Estrella
+            posiciones.AddLast(new Point(268, 350));
+            posiciones.AddLast(new Point(226, 350));
+            posiciones.AddLast(new Point(226, 308));
+            posiciones.AddLast(new Point(226, 266));
+            posiciones.AddLast(new Point(268, 266));//Salida
+            posiciones.AddLast(new Point(309, 266));
+            posiciones.AddLast(new Point(351, 266));
+            posiciones.AddLast(new Point(393, 266));
+            posiciones.AddLast(new Point(435, 266));
         }
 
-        public LinkedList<Posicion> Posiciones { get => posiciones; set => posiciones = value; }
-
-        public Posicion ProximaPosicion(Posicion posicionFicha)
+        public Point ProximaPosicion(Point posicionFicha)
         {
-            LinkedListNode<Posicion> nodoActual = posiciones.Find(posicionFicha);
+            LinkedListNode<Point> nodoActual = posiciones.Find(posicionFicha);
 
             if (nodoActual.Next != null)
             {

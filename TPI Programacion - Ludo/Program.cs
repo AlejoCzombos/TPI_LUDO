@@ -7,16 +7,14 @@ namespace TPI_Programacion___Ludo
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        public static FormularioPrincipal formulario = new FormularioPrincipal();
         [STAThread]
         static void Main()
         {
-            Tablero tab = new Tablero();
-            Formulario formularioPrincipal = new Formulario(tab);
-            tab.Formularioo = formularioPrincipal;
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();
-            Application.Run(formularioPrincipal);
+            Application.Run(formulario);
         }
     }
 }
