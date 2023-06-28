@@ -18,6 +18,12 @@ namespace TPI_Programacion___Ludo
             this.Color = color;
             this.PrimeraPosicion= primeraPosicion;
             this.fichas = fichas;
+
+            foreach (var ficha in fichas)
+            {
+                ficha.Color = Color;
+            }
+
         }
         public Ficha[] Fichas { get => fichas; }
         public Point PrimeraPosicion { get => primeraPosicion; set => primeraPosicion = value; }

@@ -139,6 +139,8 @@
             // 
             // dadoJRojo
             // 
+            dadoJRojo.BackColor = Color.Transparent;
+            dadoJRojo.Cursor = Cursors.Hand;
             dadoJRojo.Image = Properties.Resources.Dado1;
             dadoJRojo.Location = new Point(133, 90);
             dadoJRojo.Name = "dadoJRojo";
@@ -149,7 +151,8 @@
             // 
             // dadoJVerde
             // 
-            dadoJVerde.Image = Properties.Resources.Dado1;
+            dadoJVerde.BackColor = Color.Transparent;
+            dadoJVerde.Cursor = Cursors.Hand;
             dadoJVerde.Location = new Point(875, 90);
             dadoJVerde.Name = "dadoJVerde";
             dadoJVerde.Size = new Size(68, 68);
@@ -159,7 +162,8 @@
             // 
             // dadoJAmarillo
             // 
-            dadoJAmarillo.Image = Properties.Resources.Dado1;
+            dadoJAmarillo.BackColor = Color.Transparent;
+            dadoJAmarillo.Cursor = Cursors.Hand;
             dadoJAmarillo.Location = new Point(877, 499);
             dadoJAmarillo.Name = "dadoJAmarillo";
             dadoJAmarillo.Size = new Size(68, 68);
@@ -169,7 +173,8 @@
             // 
             // dadoJAzul
             // 
-            dadoJAzul.Image = Properties.Resources.Dado1;
+            dadoJAzul.BackColor = Color.Transparent;
+            dadoJAzul.Cursor = Cursors.Hand;
             dadoJAzul.Location = new Point(133, 499);
             dadoJAzul.Name = "dadoJAzul";
             dadoJAzul.Size = new Size(68, 68);
@@ -187,6 +192,7 @@
             fichaVerde3.Size = new Size(40, 40);
             fichaVerde3.TabIndex = 8;
             fichaVerde3.TabStop = false;
+            fichaVerde3.Click += fichaVerde3_Click;
             // 
             // fichaVerde0
             // 
@@ -198,6 +204,7 @@
             fichaVerde0.Size = new Size(40, 40);
             fichaVerde0.TabIndex = 9;
             fichaVerde0.TabStop = false;
+            fichaVerde0.Click += fichaVerde0_Click;
             // 
             // fichaVerde1
             // 
@@ -209,6 +216,7 @@
             fichaVerde1.Size = new Size(40, 40);
             fichaVerde1.TabIndex = 10;
             fichaVerde1.TabStop = false;
+            fichaVerde1.Click += fichaVerde1_Click;
             // 
             // fichaVerde2
             // 
@@ -220,6 +228,7 @@
             fichaVerde2.Size = new Size(40, 40);
             fichaVerde2.TabIndex = 11;
             fichaVerde2.TabStop = false;
+            fichaVerde2.Click += fichaVerde2_Click;
             // 
             // fichaAmarilla3
             // 
@@ -231,6 +240,7 @@
             fichaAmarilla3.Size = new Size(40, 40);
             fichaAmarilla3.TabIndex = 12;
             fichaAmarilla3.TabStop = false;
+            fichaAmarilla3.Click += fichaAmarilla3_Click;
             // 
             // fichaAmarilla2
             // 
@@ -242,28 +252,31 @@
             fichaAmarilla2.Size = new Size(40, 40);
             fichaAmarilla2.TabIndex = 13;
             fichaAmarilla2.TabStop = false;
+            fichaAmarilla2.Click += fichaAmarilla2_Click;
             // 
             // fichaAmarilla0
             // 
             fichaAmarilla0.BackColor = Color.Transparent;
             fichaAmarilla0.Cursor = Cursors.Hand;
             fichaAmarilla0.Image = Properties.Resources.FichaAmarilla;
-            fichaAmarilla0.Location = new Point(669, 536);
+            fichaAmarilla0.Location = new Point(669, 537);
             fichaAmarilla0.Name = "fichaAmarilla0";
             fichaAmarilla0.Size = new Size(40, 40);
             fichaAmarilla0.TabIndex = 14;
             fichaAmarilla0.TabStop = false;
+            fichaAmarilla0.Click += fichaAmarilla0_Click;
             // 
             // fichaAmarilla1
             // 
             fichaAmarilla1.BackColor = Color.Transparent;
             fichaAmarilla1.Cursor = Cursors.Hand;
             fichaAmarilla1.Image = Properties.Resources.FichaAmarilla;
-            fichaAmarilla1.Location = new Point(746, 536);
+            fichaAmarilla1.Location = new Point(746, 537);
             fichaAmarilla1.Name = "fichaAmarilla1";
             fichaAmarilla1.Size = new Size(40, 40);
             fichaAmarilla1.TabIndex = 15;
             fichaAmarilla1.TabStop = false;
+            fichaAmarilla1.Click += fichaAmarilla1_Click;
             // 
             // fichaAzul3
             // 
@@ -275,6 +288,7 @@
             fichaAzul3.Size = new Size(40, 40);
             fichaAzul3.TabIndex = 16;
             fichaAzul3.TabStop = false;
+            fichaAzul3.Click += fichaAzul3_Click;
             // 
             // fichaAzul2
             // 
@@ -286,28 +300,31 @@
             fichaAzul2.Size = new Size(40, 40);
             fichaAzul2.TabIndex = 17;
             fichaAzul2.TabStop = false;
+            fichaAzul2.Click += fichaAzul2_Click;
             // 
             // fichaAzul0
             // 
             fichaAzul0.BackColor = Color.Transparent;
             fichaAzul0.Cursor = Cursors.Hand;
             fichaAzul0.Image = Properties.Resources.FichaAzul;
-            fichaAzul0.Location = new Point(291, 536);
+            fichaAzul0.Location = new Point(291, 537);
             fichaAzul0.Name = "fichaAzul0";
             fichaAzul0.Size = new Size(40, 40);
             fichaAzul0.TabIndex = 18;
             fichaAzul0.TabStop = false;
+            fichaAzul0.Click += fichaAzul0_Click;
             // 
             // fichaAzul1
             // 
             fichaAzul1.BackColor = Color.Transparent;
             fichaAzul1.Cursor = Cursors.Hand;
             fichaAzul1.Image = Properties.Resources.FichaAzul;
-            fichaAzul1.Location = new Point(369, 536);
+            fichaAzul1.Location = new Point(369, 537);
             fichaAzul1.Name = "fichaAzul1";
             fichaAzul1.Size = new Size(40, 40);
             fichaAzul1.TabIndex = 19;
             fichaAzul1.TabStop = false;
+            fichaAzul1.Click += fichaAzul1_Click;
             // 
             // FormularioPrincipal
             // 

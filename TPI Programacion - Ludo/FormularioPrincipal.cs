@@ -37,6 +37,62 @@ namespace TPI_Programacion___Ludo
         {
             tablero.SeleccionarFicha(3);
         }
+        private void fichaVerde0_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(0);
+        }
+
+        private void fichaVerde1_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(1);
+        }
+        private void fichaVerde2_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(2);
+        }
+
+        private void fichaVerde3_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(3);
+        }
+        private void fichaAzul0_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(0);
+        }
+
+        private void fichaAzul1_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(1);
+        }
+        private void fichaAzul2_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(2);
+        }
+
+        private void fichaAzul3_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(3);
+        }
+
+        private void fichaAmarilla0_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(0);
+        }
+
+        private void fichaAmarilla1_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(1);
+        }
+        private void fichaAmarilla2_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(2);
+        }
+
+        private void fichaAmarilla3_Click(object sender, EventArgs e)
+        {
+            tablero.SeleccionarFicha(3);
+        }
+
 
         //Eventos para cambiar el dado al hacer click
 
@@ -77,6 +133,11 @@ namespace TPI_Programacion___Ludo
             imagenTablero.Controls.Add(fichaAmarilla1);
             imagenTablero.Controls.Add(fichaAmarilla2);
             imagenTablero.Controls.Add(fichaAmarilla3);
+
+            imagenTablero.Controls.Add(dadoJAmarillo);
+            imagenTablero.Controls.Add(dadoJAzul);
+            imagenTablero.Controls.Add(dadoJRojo);
+            imagenTablero.Controls.Add(dadoJVerde);
         }
     }
 }

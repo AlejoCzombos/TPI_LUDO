@@ -23,12 +23,11 @@ namespace TPI_Programacion___Ludo
         private bool estaEnCasa = true;
         private bool enJuego = true;
 
-        public Ficha(PictureBox imagen, Colores color, Point posicionCasa)
+        public Ficha(PictureBox imagen, Point posicionCasa)
         {
             this.imagen = imagen;
             this.posicionCasa = posicionCasa;
             this.posicionActual = posicionCasa;
-            this.Color = color;
         }
 
         public PictureBox Imagen { get => imagen; set => imagen = value; }

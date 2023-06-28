@@ -10,6 +10,7 @@ namespace TPI_Programacion___Ludo
         private int numero;
 
         public int Numero { get => numero; set => numero = value; }
+        public PictureBox ImagenDado { get => imagenDado; set => imagenDado = value; }
 
         public Dado(PictureBox imagenDado) 
         {

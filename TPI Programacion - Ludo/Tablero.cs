@@ -8,6 +8,17 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace TPI_Programacion___Ludo
 {
+
+    public enum Turno2Jugadores
+    {
+        Jugador1, Jugador2
+    }
+
+    public enum Turnos4Jugadores
+    {
+        Jugador1, Jugador2, Jugador3, Jugador4
+    }
+
     public class Tablero
     {
         private FormularioPrincipal formulario;
@@ -26,29 +37,25 @@ namespace TPI_Programacion___Ludo
         private Dado dadoAmarillo;
 
         private List<Ficha> fichas;
+        private Jugador[] jugadores;
+
+        private Turnos4Jugadores turnoActual = Turnos4Jugadores.Jugador1;
 
         int numeroDado = 0;
         int indiceFichaJugador;
-        bool avanza, puedeSeleccionarFicha = false;
+
+        bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true;
         public Tablero()
         {
             formulario = Program.formulario;
 
-            JugadorRojo = new Jugador(new Point(268, 266), Colores.Rojo,
-                new Ficha[] {
-                    new Ficha(formulario.fichaRoja0, Colores.Rojo, new Point(291, 164)),
-                    new Ficha(formulario.fichaRoja1, Colores.Rojo, new Point(369, 159)),
-                    new Ficha(formulario.fichaRoja2, Colores.Rojo, new Point(369, 81)),
-                    new Ficha(formulario.fichaRoja3, Colores.Rojo, new Point(291, 81))
-                });
-
-            fichas = new List<Ficha>();
-            fichas.Add(JugadorRojo.Fichas[0]);
-            fichas.Add(JugadorRojo.Fichas[1]);
-            fichas.Add(JugadorRojo.Fichas[2]);
-            fichas.Add(JugadorRojo.Fichas[3]);
+            InstanciarJugadores();
 
             recorrido = new Recorrido();
+            jugadores = new Jugador[]{
+                jugadorRojo, jugadorVerde, jugadorAzul, jugadorAmarillo
+            };
+
             timer = new Timer();
             timer.Interval = 500;
             timer.Tick += new EventHandler(Ontimer);
@@ -67,14 +74,20 @@ namespace TPI_Programacion___Ludo
                 return;
             }
             timer.Stop();
+
+            CambiarTurno();
         }
 
         public void TirarDado(Dado dado)
         {
+            if (puedeSeleccionarDado)
+            {
+                dado.tirarDado();
+                numeroDado = dado.Numero;
 
-            dado.tirarDado();
-            numeroDado = dado.Numero;
-            puedeSeleccionarFicha = true;
+                puedeSeleccionarFicha = true;
+                puedeSeleccionarDado = false;
+            }
         }
 
         public void SeleccionarFicha(int indiceFicha)
@@ -85,14 +98,39 @@ namespace TPI_Programacion___Ludo
             {
                 indiceFichaJugador = indiceFicha;
                 timer.Start();
+
                 puedeSeleccionarFicha = false;
             }
+        }
+
+        private void CambiarTurno()
+        {
+            switch (turnoActual)
+            {
+                case Turnos4Jugadores.Jugador1:
+                    turnoActual = Turnos4Jugadores.Jugador2;
+                    break;
+                case Turnos4Jugadores.Jugador2:
+                    turnoActual = Turnos4Jugadores.Jugador3;
+                    break;
+                case Turnos4Jugadores.Jugador3:
+                    turnoActual = Turnos4Jugadores.Jugador4;
+                    break;
+                case Turnos4Jugadores.Jugador4:
+                    turnoActual = Turnos4Jugadores.Jugador1;
+                    break;
+                default:
+                    break;
+            }
+
+            CambiarDado();
+            puedeSeleccionarDado = true;
         }
 
         public void MoverFicha()
         {
             //PROVISORIO CAMBIAR EL JUGADOR DEPENDIENDO DEL TURNO
-            Jugador jugador = JugadorRojo;
+            Jugador jugador = jugadores[(int)turnoActual];
 
             Ficha ficha = jugador.Fichas[indiceFichaJugador];
 
@@ -120,7 +158,7 @@ namespace TPI_Programacion___Ludo
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color == fi.Color)
                 {
                     //Comprueba si tiene mas de un movimiento para saber si puede pasar a la ficha del mismo color
-                    if (numeroDado > 1) avanza = true;
+                    if (numeroDado > 2) avanza = true;
                     else avanza = false;
                     break;
                 }
@@ -128,8 +166,8 @@ namespace TPI_Programacion___Ludo
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color != fi.Color)
                 {
                     avanza = true;
-                    ficha.Imagen.Location = ficha.PosicionCasa;
-                    ficha.EstaEnCasa = true;
+                    fi.Imagen.Location = ficha.PosicionCasa;
+                    fi.EstaEnCasa = true;
                     break;
                 }
             }
@@ -143,6 +181,71 @@ namespace TPI_Programacion___Ludo
                 numeroDado--;
             }
         }
+
+        private void CambiarDado()
+        {
+            switch (turnoActual)
+            {
+                case Turnos4Jugadores.Jugador1:
+                    dadoAmarillo.ImagenDado.Image = null;
+                    dadoRojo.ImagenDado.Image = Properties.Resources.Dado1;
+                    break;
+                case Turnos4Jugadores.Jugador2:
+                    dadoRojo.ImagenDado.Image = null;
+                    DadoVerde.ImagenDado.Image = Properties.Resources.Dado1;
+                    break;
+                case Turnos4Jugadores.Jugador3:
+                    dadoVerde.ImagenDado.Image = null;
+                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado1;
+                    break;
+                case Turnos4Jugadores.Jugador4:
+                    dadoAzul.ImagenDado.Image = null;
+                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void InstanciarJugadores()
+        {
+            JugadorRojo = new Jugador(new Point(268, 266), Colores.Rojo,
+                new Ficha[] {
+                    new Ficha(formulario.fichaRoja0, new Point(291, 164)),
+                    new Ficha(formulario.fichaRoja1, new Point(369, 159)),
+                    new Ficha(formulario.fichaRoja2, new Point(369, 81)),
+                    new Ficha(formulario.fichaRoja3, new Point(291, 81))
+                });
+            JugadorVerde = new Jugador(new Point(561, 56), Colores.Verde,
+                new Ficha[] {
+                    new Ficha(formulario.fichaVerde0, new Point(669, 159)),
+                    new Ficha(formulario.fichaVerde1, new Point(746, 159)),
+                    new Ficha(formulario.fichaVerde2, new Point(746, 81)),
+                    new Ficha(formulario.fichaVerde3, new Point(669, 81))
+                });
+            JugadorAzul = new Jugador(new Point(477, 560), Colores.Azul,
+                new Ficha[] {
+                    new Ficha(formulario.fichaAzul0, new Point(291, 537)),
+                    new Ficha(formulario.fichaAzul1, new Point(369, 537)),
+                    new Ficha(formulario.fichaAzul2, new Point(369, 459)),
+                    new Ficha(formulario.fichaAzul3, new Point(291, 459))
+                });
+            JugadorAmarillo = new Jugador(new Point(771, 350), Colores.Amarillo,
+                new Ficha[] {
+                    new Ficha(formulario.fichaAmarilla0, new Point(669, 537)),
+                    new Ficha(formulario.fichaAmarilla1, new Point(746, 537)),
+                    new Ficha(formulario.fichaAmarilla2, new Point(746, 459)),
+                    new Ficha(formulario.fichaAmarilla3, new Point(669, 459))
+                });
+
+            fichas = new List<Ficha>();
+
+            fichas.AddRange(jugadorRojo.Fichas);
+            fichas.AddRange(jugadorVerde.Fichas);
+            fichas.AddRange(jugadorAzul.Fichas);
+            fichas.AddRange(jugadorAmarillo.Fichas);
+        }
+
         internal Jugador JugadorRojo { get => jugadorRojo; set => jugadorRojo = value; }
         internal Jugador JugadorAzul { get => jugadorAzul; set => jugadorAzul = value; }
         internal Jugador JugadorAmarillo { get => jugadorAmarillo; set => jugadorAmarillo = value; }
