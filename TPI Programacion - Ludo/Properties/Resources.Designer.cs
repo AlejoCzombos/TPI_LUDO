@@ -83,9 +83,29 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FichaAmarillaGrande {
+            get {
+                object obj = ResourceManager.GetObject("FichaAmarillaGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaAzul {
             get {
                 object obj = ResourceManager.GetObject("FichaAzul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FichaCelesteGrande {
+            get {
+                object obj = ResourceManager.GetObject("FichaCelesteGrande", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,39 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FichaRojaGrande {
+            get {
+                object obj = ResourceManager.GetObject("FichaRojaGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaVerde {
             get {
                 object obj = ResourceManager.GetObject("FichaVerde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FichaVerdeGrande {
+            get {
+                object obj = ResourceManager.GetObject("FichaVerdeGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableroAnimado {
+            get {
+                object obj = ResourceManager.GetObject("TableroAnimado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
