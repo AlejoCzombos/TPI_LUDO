@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace TPI_Programacion___Ludo
 {
     public partial class FormularioSeleccionColores : Form
-    { 
+    {
         /*
          * Este formulario se maneja en base a la cantidad de jugadores elegidos en la pantaalla de inicio
          */

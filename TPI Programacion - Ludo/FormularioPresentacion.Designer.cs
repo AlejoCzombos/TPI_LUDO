@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioPresentacion));
             panelBotones = new Panel();
             labelSeleccion = new Label();
             buttonEmpezar = new Button();
@@ -143,6 +144,7 @@
             ClientSize = new Size(659, 944);
             Controls.Add(panelImagen);
             Controls.Add(panelBotones);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormularioPresentacion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ludo.NET";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioSeleccionColores));
             panel1 = new Panel();
             buttonVolverAtras = new Button();
             buttonContinuar = new Button();
@@ -221,6 +222,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(508, 539);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormularioSeleccionColores";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ludo.NET";
