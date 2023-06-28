@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Timer = System.Windows.Forms.Timer;
@@ -41,6 +42,10 @@ namespace TPI_Programacion___Ludo
 
         private Turnos4Jugadores turnoActual = Turnos4Jugadores.Jugador1;
 
+        //lista de posiciones donde no se pueden comer
+        private LinkedList<Point> posicionesSeguras = new LinkedList<Point>();
+        
+
         int numeroDado = 0;
         int indiceFichaJugador;
 
@@ -64,6 +69,8 @@ namespace TPI_Programacion___Ludo
             DadoVerde = new Dado(formulario.dadoJVerde);
             DadoAzul = new Dado(formulario.dadoJAzul);
             DadoAmarillo = new Dado(formulario.dadoJAmarillo);
+
+            cargarposSeguras();
         }
 
         private void Ontimer(object sender, EventArgs e)
@@ -182,6 +189,12 @@ namespace TPI_Programacion___Ludo
                 {
                     if (numeroDado == 1)
                     {
+                        if(posicionesSeguras.Any(x => x == fi.PosicionActual))
+                        {
+                            avanza = false;
+                            break;
+                        }
+
                         avanza = true;
                         fi.Imagen.Location = fi.PosicionCasa;
                         fi.EstaEnCasa = true;
@@ -189,6 +202,8 @@ namespace TPI_Programacion___Ludo
                     break;
                 }
             }
+
+
 
             //Si la posicion futura esta libre se avanza
             if (avanza)
@@ -295,5 +310,18 @@ namespace TPI_Programacion___Ludo
         public Dado DadoVerde { get => dadoVerde; set => dadoVerde = value; }
         public Dado DadoAzul { get => dadoAzul; set => dadoAzul = value; }
         public Dado DadoAmarillo { get => dadoAmarillo; set => dadoAmarillo = value; }
+
+        public void cargarposSeguras()
+        {
+            posicionesSeguras.AddLast(new Point(477, 98));//Estrella
+            posicionesSeguras.AddLast(new Point(561, 56));//Salida
+            posicionesSeguras.AddLast(new Point(729, 266));//Estrella
+            posicionesSeguras.AddLast(new Point(771, 350));//Salida
+            posicionesSeguras.AddLast(new Point(561, 518));//Estrella
+            posicionesSeguras.AddLast(new Point(477, 560));//Salida
+            posicionesSeguras.AddLast(new Point(310, 350));//Estrella
+            posicionesSeguras.AddLast(new Point(268, 266));//Salida
+        }
     }
+    
 }
