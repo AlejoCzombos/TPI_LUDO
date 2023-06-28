@@ -158,16 +158,22 @@ namespace TPI_Programacion___Ludo
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color == fi.Color)
                 {
                     //Comprueba si tiene mas de un movimiento para saber si puede pasar a la ficha del mismo color
-                    if (numeroDado > 2) avanza = true;
-                    else avanza = false;
+                    if (numeroDado > 1) avanza = true;
+                    else { 
+                    avanza = false;
+                    numeroDado = 0;
+                    }
                     break;
                 }
                 //Compueba si en la posicion futura hay una ficha del otro color
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color != fi.Color)
                 {
-                    avanza = true;
-                    fi.Imagen.Location = ficha.PosicionCasa;
-                    fi.EstaEnCasa = true;
+                    if (numeroDado == 1)
+                    {
+                        avanza = true;
+                        fi.Imagen.Location = fi.PosicionCasa;
+                        fi.EstaEnCasa = true;
+                    }
                     break;
                 }
             }
@@ -177,6 +183,7 @@ namespace TPI_Programacion___Ludo
             {
                 ficha.PosicionActual = ficha.PosicionFutura;
 
+                ficha.Imagen.Show();
                 ficha.Imagen.Location = ficha.PosicionActual;
                 numeroDado--;
             }
@@ -187,20 +194,32 @@ namespace TPI_Programacion___Ludo
             switch (turnoActual)
             {
                 case Turnos4Jugadores.Jugador1:
-                    dadoAmarillo.ImagenDado.Image = null;
+                    dadoAzul.ImagenDado.Image = null;
+                    dadoAzul.ImagenDado.Enabled = false;
+
+                    dadoRojo.ImagenDado.Enabled = true;
                     dadoRojo.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 case Turnos4Jugadores.Jugador2:
+                    dadoRojo.ImagenDado.Enabled = false;
                     dadoRojo.ImagenDado.Image = null;
+
+                    dadoVerde.ImagenDado.Enabled = true;
                     DadoVerde.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 case Turnos4Jugadores.Jugador3:
+                    dadoVerde.ImagenDado.Enabled = false;
                     dadoVerde.ImagenDado.Image = null;
-                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado1;
+
+                    dadoAmarillo.ImagenDado.Enabled = true;
+                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 case Turnos4Jugadores.Jugador4:
-                    dadoAzul.ImagenDado.Image = null;
-                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
+                    dadoAmarillo.ImagenDado.Image = null;
+                    dadoAmarillo.ImagenDado.Enabled = false;
+
+                    dadoAzul.ImagenDado.Enabled = true;
+                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 default:
                     break;
@@ -211,7 +230,7 @@ namespace TPI_Programacion___Ludo
         {
             JugadorRojo = new Jugador(new Point(268, 266), Colores.Rojo,
                 new Ficha[] {
-                    new Ficha(formulario.fichaRoja0, new Point(291, 164)),
+                    new Ficha(formulario.fichaRoja0, new Point(291, 159)),
                     new Ficha(formulario.fichaRoja1, new Point(369, 159)),
                     new Ficha(formulario.fichaRoja2, new Point(369, 81)),
                     new Ficha(formulario.fichaRoja3, new Point(291, 81))

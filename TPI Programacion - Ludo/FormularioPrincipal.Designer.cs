@@ -153,6 +153,7 @@
             // 
             dadoJVerde.BackColor = Color.Transparent;
             dadoJVerde.Cursor = Cursors.Hand;
+            dadoJVerde.Enabled = false;
             dadoJVerde.Location = new Point(875, 90);
             dadoJVerde.Name = "dadoJVerde";
             dadoJVerde.Size = new Size(68, 68);
@@ -164,6 +165,7 @@
             // 
             dadoJAmarillo.BackColor = Color.Transparent;
             dadoJAmarillo.Cursor = Cursors.Hand;
+            dadoJAmarillo.Enabled = false;
             dadoJAmarillo.Location = new Point(877, 499);
             dadoJAmarillo.Name = "dadoJAmarillo";
             dadoJAmarillo.Size = new Size(68, 68);
@@ -175,6 +177,7 @@
             // 
             dadoJAzul.BackColor = Color.Transparent;
             dadoJAzul.Cursor = Cursors.Hand;
+            dadoJAzul.Enabled = false;
             dadoJAzul.Location = new Point(133, 499);
             dadoJAzul.Name = "dadoJAzul";
             dadoJAzul.Size = new Size(68, 68);
