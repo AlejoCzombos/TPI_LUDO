@@ -35,11 +35,13 @@
             fichaRoja1 = new PictureBox();
             fichaRoja2 = new PictureBox();
             fichaRoja3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)imagenTablero).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // timerSeleccionFicha
@@ -62,7 +64,7 @@
             // 
             fichaRoja0.BackColor = Color.Transparent;
             fichaRoja0.Cursor = Cursors.Hand;
-            fichaRoja0.Image = Properties.Resources.FichaRoja1;
+            fichaRoja0.Image = Properties.Resources.FichaRoja;
             fichaRoja0.Location = new Point(285, 164);
             fichaRoja0.Name = "fichaRoja0";
             fichaRoja0.Size = new Size(40, 40);
@@ -74,7 +76,7 @@
             // 
             fichaRoja1.BackColor = Color.Transparent;
             fichaRoja1.Cursor = Cursors.Hand;
-            fichaRoja1.Image = Properties.Resources.FichaRoja1;
+            fichaRoja1.Image = Properties.Resources.FichaRoja;
             fichaRoja1.Location = new Point(374, 164);
             fichaRoja1.Name = "fichaRoja1";
             fichaRoja1.Size = new Size(40, 40);
@@ -86,7 +88,7 @@
             // 
             fichaRoja2.BackColor = Color.Transparent;
             fichaRoja2.Cursor = Cursors.Hand;
-            fichaRoja2.Image = Properties.Resources.FichaRoja1;
+            fichaRoja2.Image = Properties.Resources.FichaRoja;
             fichaRoja2.Location = new Point(374, 75);
             fichaRoja2.Name = "fichaRoja2";
             fichaRoja2.Size = new Size(40, 40);
@@ -98,20 +100,30 @@
             // 
             fichaRoja3.BackColor = Color.Transparent;
             fichaRoja3.Cursor = Cursors.Hand;
-            fichaRoja3.Image = Properties.Resources.FichaRoja1;
-            fichaRoja3.Location = new Point(285, 75);
+            fichaRoja3.Image = Properties.Resources.FichaRoja;
+            fichaRoja3.Location = new Point(290, 81);
             fichaRoja3.Name = "fichaRoja3";
             fichaRoja3.Size = new Size(40, 40);
             fichaRoja3.TabIndex = 4;
             fichaRoja3.TabStop = false;
             fichaRoja3.Click += fichaRoja3_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Dado1;
+            pictureBox2.Location = new Point(132, 90);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(68, 68);
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
             // FormularioPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.DarkGray;
             ClientSize = new Size(1077, 662);
+            Controls.Add(pictureBox2);
             Controls.Add(fichaRoja3);
             Controls.Add(fichaRoja2);
             Controls.Add(fichaRoja1);
@@ -129,6 +141,7 @@
             ((System.ComponentModel.ISupportInitialize)fichaRoja1).EndInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja2).EndInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -139,5 +152,6 @@
         public PictureBox fichaRoja1;
         public PictureBox fichaRoja2;
         public PictureBox fichaRoja3;
+        private PictureBox pictureBox2;
     }
 }

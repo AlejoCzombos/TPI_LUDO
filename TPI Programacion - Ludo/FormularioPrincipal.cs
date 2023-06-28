@@ -11,7 +11,6 @@ namespace TPI_Programacion___Ludo
         {
             InitializeComponent();
 
-
             imagenTablero.Controls.Add(fichaRoja0);
             imagenTablero.Controls.Add(fichaRoja1);
             imagenTablero.Controls.Add(fichaRoja2);

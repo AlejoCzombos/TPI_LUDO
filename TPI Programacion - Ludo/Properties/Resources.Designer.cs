@@ -63,9 +63,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaRoja {
+        internal static System.Drawing.Bitmap Dado1 {
             get {
-                object obj = ResourceManager.GetObject("FichaRoja", resourceCulture);
+                object obj = ResourceManager.GetObject("Dado1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaRoja1 {
+        internal static System.Drawing.Bitmap FichaRoja {
             get {
-                object obj = ResourceManager.GetObject("FichaRoja1", resourceCulture);
+                object obj = ResourceManager.GetObject("FichaRoja", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
