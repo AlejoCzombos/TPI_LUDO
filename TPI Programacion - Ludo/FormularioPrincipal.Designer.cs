@@ -51,6 +51,16 @@
             fichaAzul2 = new PictureBox();
             fichaAzul0 = new PictureBox();
             fichaAzul1 = new PictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            labelJugador1 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label1 = new Label();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            labelJugador2 = new Label();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            labelJugador3 = new Label();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            labelJugador4 = new Label();
             ((System.ComponentModel.ISupportInitialize)imagenTablero).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaRoja1).BeginInit();
@@ -72,6 +82,10 @@
             ((System.ComponentModel.ISupportInitialize)fichaAzul2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaAzul0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fichaAzul1).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
             SuspendLayout();
             // 
             // timerSeleccionFicha
@@ -329,12 +343,148 @@
             fichaAzul1.TabStop = false;
             fichaAzul1.Click += fichaAzul1_Click;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.Transparent;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(labelJugador1, 0, 0);
+            tableLayoutPanel1.Location = new Point(12, 12);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(201, 60);
+            tableLayoutPanel1.TabIndex = 20;
+            // 
+            // labelJugador1
+            // 
+            labelJugador1.AutoSize = true;
+            labelJugador1.BackColor = Color.Transparent;
+            labelJugador1.Dock = DockStyle.Fill;
+            labelJugador1.Font = new Font("Pokemon Classic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelJugador1.Location = new Point(3, 0);
+            labelJugador1.Name = "labelJugador1";
+            labelJugador1.Size = new Size(195, 60);
+            labelJugador1.TabIndex = 0;
+            labelJugador1.Text = "Jugador 1";
+            labelJugador1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.BackColor = Color.Transparent;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.Size = new Size(200, 100);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Pokemon Classic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(194, 100);
+            label1.TabIndex = 0;
+            label1.Text = "Jugador 1";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.BackColor = Color.Transparent;
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(labelJugador2, 0, 0);
+            tableLayoutPanel3.Location = new Point(864, 12);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(201, 60);
+            tableLayoutPanel3.TabIndex = 21;
+            // 
+            // labelJugador2
+            // 
+            labelJugador2.AutoSize = true;
+            labelJugador2.BackColor = Color.Transparent;
+            labelJugador2.Dock = DockStyle.Fill;
+            labelJugador2.Font = new Font("Pokemon Classic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelJugador2.Location = new Point(3, 0);
+            labelJugador2.Name = "labelJugador2";
+            labelJugador2.Size = new Size(195, 60);
+            labelJugador2.TabIndex = 0;
+            labelJugador2.Text = "Jugador 2";
+            labelJugador2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.BackColor = Color.Transparent;
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.Controls.Add(labelJugador3, 0, 0);
+            tableLayoutPanel4.Location = new Point(864, 585);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel4.Size = new Size(201, 60);
+            tableLayoutPanel4.TabIndex = 22;
+            // 
+            // labelJugador3
+            // 
+            labelJugador3.AutoSize = true;
+            labelJugador3.BackColor = Color.Transparent;
+            labelJugador3.Dock = DockStyle.Fill;
+            labelJugador3.Font = new Font("Pokemon Classic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelJugador3.Location = new Point(3, 0);
+            labelJugador3.Name = "labelJugador3";
+            labelJugador3.Size = new Size(195, 60);
+            labelJugador3.TabIndex = 0;
+            labelJugador3.Text = "Jugador 3";
+            labelJugador3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.BackColor = Color.Transparent;
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(labelJugador4, 0, 0);
+            tableLayoutPanel5.Location = new Point(12, 585);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.Size = new Size(201, 60);
+            tableLayoutPanel5.TabIndex = 23;
+            // 
+            // labelJugador4
+            // 
+            labelJugador4.AutoSize = true;
+            labelJugador4.BackColor = Color.Transparent;
+            labelJugador4.Dock = DockStyle.Fill;
+            labelJugador4.Font = new Font("Pokemon Classic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelJugador4.Location = new Point(3, 0);
+            labelJugador4.Name = "labelJugador4";
+            labelJugador4.Size = new Size(195, 60);
+            labelJugador4.TabIndex = 0;
+            labelJugador4.Text = "Jugador 4";
+            labelJugador4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormularioPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(1077, 662);
+            Controls.Add(tableLayoutPanel5);
+            Controls.Add(tableLayoutPanel4);
+            Controls.Add(tableLayoutPanel3);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(fichaAzul1);
             Controls.Add(fichaAzul0);
             Controls.Add(fichaAzul2);
@@ -384,6 +534,14 @@
             ((System.ComponentModel.ISupportInitialize)fichaAzul2).EndInit();
             ((System.ComponentModel.ISupportInitialize)fichaAzul0).EndInit();
             ((System.ComponentModel.ISupportInitialize)fichaAzul1).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
+            tableLayoutPanel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -410,5 +568,15 @@
         public PictureBox fichaAzul2;
         public PictureBox fichaAzul0;
         public PictureBox fichaAzul1;
+        private TableLayoutPanel tableLayoutPanel1;
+        public Label labelJugador1;
+        private TableLayoutPanel tableLayoutPanel2;
+        public Label label1;
+        private TableLayoutPanel tableLayoutPanel3;
+        public Label labelJugador2;
+        private TableLayoutPanel tableLayoutPanel4;
+        public Label labelJugador3;
+        private TableLayoutPanel tableLayoutPanel5;
+        public Label labelJugador4;
     }
 }

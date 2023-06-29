@@ -75,3 +75,5 @@ C:\Users\Matias Barboza\source\repos\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\
 C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.FormularioPresentacion.resources
 C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.FormularioSeleccionColores.resources
 C:\Users\Matias Barboza\source\repos\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.FormularioGanador.resources
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.FormularioGanador.resources
+C:\Alejo\Programacion\C#\TPI_LUDO\TPI Programacion - Ludo\obj\Debug\net6.0-windows\TPI_Programacion___Ludo.FormularioCPU.resources

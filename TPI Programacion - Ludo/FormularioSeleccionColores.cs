@@ -23,6 +23,7 @@ namespace TPI_Programacion___Ludo
         public FormularioSeleccionColores()
         {
             InitializeComponent();
+
             Cerrado = false;
         }
 
@@ -32,11 +33,29 @@ namespace TPI_Programacion___Ludo
         private void buttonContinuar_Click(object sender, EventArgs e)
         {
             if (CantidadJugadores == 1)
-            { }
-            else if (CantidadJugadores == 2)
-            { }
-            else
-            { }
+            {
+
+            }
+            else if (CantidadJugadores == 4)
+            {
+                if (NombresVacios())
+                {
+                    MessageBox.Show("Los nombres no pueden estar vacios", "Nombres vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    Program.formulario.ReiniciarTablero();
+                    Program.formulario.ActualizarNombres(textBoxR.Text, textBoxV.Text, textBoxA.Text, textBoxC.Text);
+                    Program.formulario.ShowDialog();
+                    this.Hide();
+                }
+            }
+        }
+
+        private bool NombresVacios()
+        {
+            return textBoxA.Text == "" || textBoxR.Text == "" || textBoxC.Text == "" || textBoxV.Text == "";
         }
 
 
@@ -56,6 +75,13 @@ namespace TPI_Programacion___Ludo
             textBoxV.Text = "";
             textBoxA.Text = "";
             textBoxC.Text = "";
+        }
+        private void ReiniciarTextBox()
+        {
+            textBoxV.Enabled = true;
+            textBoxA.Enabled = true;
+            textBoxC.Enabled = true;
+            textBoxR.Enabled = true;
         }
 
         private void textBox_MouseMove(object sender, MouseEventArgs e)
@@ -86,59 +112,62 @@ namespace TPI_Programacion___Ludo
         //En JvsPC o JvsJ una vez el mouse haya abandonado un TextBox habilita los demas correspondientes
         private void Condicion_MouseLeave(TextBox txtBox)
         {
-            if (txtBox == textBoxR)
-            {
-                textBoxA.Enabled = true;
-                textBoxV.Enabled = true;
-                textBoxC.Enabled = true;
-            }
-            if (txtBox == textBoxV)
-            {
-                textBoxR.Enabled = true;
-                textBoxA.Enabled = true;
-                textBoxC.Enabled = true;
-            }
-            if (txtBox == textBoxA)
-            {
-                textBoxR.Enabled = true;
-                textBoxV.Enabled = true;
-                textBoxC.Enabled = true;
-            }
-            if (txtBox == textBoxC)
-            {
-                textBoxR.Enabled = true;
-                textBoxV.Enabled = true;
-                textBoxA.Enabled = true;
-            }
+            //if (txtBox == textBoxR)
+            //{
+            //    textBoxA.Enabled = true;
+            //    textBoxV.Enabled = true;
+            //    textBoxC.Enabled = true;
+            //}
+            //if (txtBox == textBoxV)
+            //{
+            //    textBoxR.Enabled = true;
+            //    textBoxA.Enabled = true;
+            //    textBoxC.Enabled = true;
+            //}
+            //if (txtBox == textBoxA)
+            //{
+            //    textBoxR.Enabled = true;
+            //    textBoxV.Enabled = true;
+            //    textBoxC.Enabled = true;
+            //}
+            //if (txtBox == textBoxC)
+            //{
+            //    textBoxR.Enabled = true;
+            //    textBoxV.Enabled = true;
+            //    textBoxA.Enabled = true;
+            //}
         }
 
         //En Jugador vs PC, solo se puede elegir uno, esto deshabilita los demas cuando el mouse se mueve por un TextBox
         private void CondicionJvsPC_MouseMove(TextBox txtBox)
         {
-            if (txtBox == textBoxR)
-            {
-                textBoxV.Enabled = false;
-                textBoxA.Enabled = false;
-                textBoxC.Enabled = false;
-            }
-            if (txtBox == textBoxV)
-            {
-                textBoxR.Enabled = false;
-                textBoxA.Enabled = false;
-                textBoxC.Enabled = false;
-            }
-            if (txtBox == textBoxA)
-            {
-                textBoxR.Enabled = false;
-                textBoxV.Enabled = false;
-                textBoxC.Enabled = false;
-            }
-            if (txtBox == textBoxC)
-            {
-                textBoxR.Enabled = false;
-                textBoxV.Enabled = false;
-                textBoxA.Enabled = false;
-            }
+            textBoxV.Enabled = false;
+            textBoxA.Enabled = false;
+            textBoxC.Enabled = false;
+            //if (txtBox == textBoxR)
+            //{
+            //    textBoxV.Enabled = false;
+            //    textBoxA.Enabled = false;
+            //    textBoxC.Enabled = false;
+            //}
+            //if (txtBox == textBoxV)
+            //{
+            //    textBoxR.Enabled = false;
+            //    textBoxA.Enabled = false;
+            //    textBoxC.Enabled = false;
+            //}
+            //if (txtBox == textBoxA)
+            //{
+            //    textBoxR.Enabled = false;
+            //    textBoxV.Enabled = false;
+            //    textBoxC.Enabled = false;
+            //}
+            //if (txtBox == textBoxC)
+            //{
+            //    textBoxR.Enabled = false;
+            //    textBoxV.Enabled = false;
+            //    textBoxA.Enabled = false;
+            //}
         }
 
         /*
@@ -147,30 +176,30 @@ namespace TPI_Programacion___Ludo
          */
         private void CondicionJvsPC_MouseClick(TextBox txtBox)
         {
-            if (txtBox == textBoxR)
-            {
-                textBoxV.Text = "";
-                textBoxA.Text = "";
-                textBoxC.Text = "";
-            }
-            if (txtBox == textBoxV)
-            {
-                textBoxR.Text = "";
-                textBoxA.Text = "";
-                textBoxC.Text = "";
-            }
-            if (txtBox == textBoxA)
-            {
-                textBoxR.Text = "";
-                textBoxV.Text = "";
-                textBoxC.Text = "";
-            }
-            if (txtBox == textBoxC)
-            {
-                textBoxR.Text = "";
-                textBoxV.Text = "";
-                textBoxA.Text = "";
-            }
+            //if (txtBox == textBoxR)
+            //{
+            //    textBoxV.Text = "";
+            //    textBoxA.Text = "";
+            //    textBoxC.Text = "";
+            //}
+            //if (txtBox == textBoxV)
+            //{
+            //    textBoxR.Text = "";
+            //    textBoxA.Text = "";
+            //    textBoxC.Text = "";
+            //}
+            //if (txtBox == textBoxA)
+            //{
+            //    textBoxR.Text = "";
+            //    textBoxV.Text = "";
+            //    textBoxC.Text = "";
+            //}
+            //if (txtBox == textBoxC)
+            //{
+            //    textBoxR.Text = "";
+            //    textBoxV.Text = "";
+            //    textBoxA.Text = "";
+            //}
         }
 
         /*
@@ -239,6 +268,28 @@ namespace TPI_Programacion___Ludo
         {
             Cerrado = true;
             LimpiarTextBox();
+            ReiniciarTextBox();
+        }
+
+        private void labelSeleccion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxR_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void labelRojo_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void textBoxR_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBoxV_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

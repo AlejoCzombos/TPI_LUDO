@@ -8,10 +8,10 @@ namespace TPI_Programacion___Ludo
 {
     public enum Colores
     {
+        Rojo,
         Verde,
         Amarillo,
-        Azul,
-        Rojo
+        Azul
     }
     public class Ficha
     {

@@ -7,11 +7,34 @@ namespace TPI_Programacion___Ludo
     {
         private Tablero tablero;
 
+
         public FormularioPrincipal()
         {
             InitializeComponent();
             TransparentarFichas();
         }
+        public void ActualizarNombres(string nombrej1, string nombrej2, string nombrej3, string nombrej4)
+        {
+            labelJugador1.Text = nombrej1;
+            labelJugador2.Text = nombrej2;
+            labelJugador3.Text = nombrej3;
+            labelJugador4.Text = nombrej4;
+        }
+
+        public void ReiniciarNombres()
+        {
+            labelJugador1.Text = "";
+            labelJugador2.Text = "";
+            labelJugador3.Text = "";
+            labelJugador4.Text = "";
+        }
+
+        public void ReiniciarTablero()
+        {
+            tablero = new Tablero();
+            tablero.ReiniciarJuego();
+        }
+
         private void LoadFormulario(object sender, EventArgs e)
         {
             tablero = new Tablero();
@@ -138,6 +161,12 @@ namespace TPI_Programacion___Ludo
             imagenTablero.Controls.Add(dadoJAzul);
             imagenTablero.Controls.Add(dadoJRojo);
             imagenTablero.Controls.Add(dadoJVerde);
+
+            imagenTablero.Controls.Add(tableLayoutPanel1);
+            imagenTablero.Controls.Add(tableLayoutPanel2);
+            imagenTablero.Controls.Add(tableLayoutPanel3);
+            imagenTablero.Controls.Add(tableLayoutPanel4);
+            imagenTablero.Controls.Add(tableLayoutPanel5);
         }
     }
 }

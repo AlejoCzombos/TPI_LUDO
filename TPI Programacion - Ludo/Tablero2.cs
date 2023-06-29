@@ -9,34 +9,28 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace TPI_Programacion___Ludo
 {
-
-    public enum Turnos4Jugadores
+    public enum Turno2Jugadores
     {
-        Jugador1, Jugador2, Jugador3, Jugador4
+        Jugador1, Jugador2
     }
-
-    public class Tablero
+    public class Tablero2
     {
-        private FormularioPrincipal formulario;
+        private FormularioCPU formulario;
         private Recorrido recorrido;
 
         private Timer timer;
 
-        private Jugador jugadorVerde;
         private Jugador jugadorAmarillo;
-        private Jugador jugadorAzul;
         private Jugador jugadorRojo;
 
         private Dado dadoRojo;
-        private Dado dadoVerde;
-        private Dado dadoAzul;
         private Dado dadoAmarillo;
         private Dado dadoActual;
 
         private List<Ficha> fichas;
         private Jugador[] jugadores;
 
-        private Turnos4Jugadores turnoActual = Turnos4Jugadores.Jugador1;
+        private Turno2Jugadores turnoActual = Turno2Jugadores.Jugador1;
 
         //lista de posiciones donde no se pueden comer
         private LinkedList<Point> posicionesSeguras = new LinkedList<Point>();
@@ -47,24 +41,22 @@ namespace TPI_Programacion___Ludo
 
         bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true, puedeCambiarTurno = false;
         bool esPrimerMovimiento;
-        public Tablero()
+        public Tablero2()
         {
-            formulario = Program.formulario;
+            formulario = Program.formularioCPU;
 
             InstanciarJugadores();
 
             recorrido = new Recorrido();
             jugadores = new Jugador[]{
-                jugadorRojo, jugadorVerde,  jugadorAmarillo, jugadorAzul
+                jugadorRojo,  jugadorAmarillo
             };
 
             timer = new Timer();
-            timer.Interval = 400;
+            timer.Interval = 500;
             timer.Tick += new EventHandler(Ontimer);
 
             DadoRojo = new Dado(formulario.dadoJRojo);
-            DadoVerde = new Dado(formulario.dadoJVerde);
-            DadoAzul = new Dado(formulario.dadoJAzul);
             DadoAmarillo = new Dado(formulario.dadoJAmarillo);
 
             cargarposSeguras();
@@ -79,6 +71,7 @@ namespace TPI_Programacion___Ludo
             }
 
             timer.Stop();
+
 
             if (puedeCambiarTurno)
             {
@@ -125,7 +118,14 @@ namespace TPI_Programacion___Ludo
             }
         }
 
-        
+
+        private void CambiarTurno()
+        {
+            turnoActual = turnoActual == Turno2Jugadores.Jugador1 ? Turno2Jugadores.Jugador2 : Turno2Jugadores.Jugador1;
+
+            CambiarDado();
+            puedeSeleccionarDado = true;
+        }
 
         public void MoverFicha()
         {
@@ -134,7 +134,7 @@ namespace TPI_Programacion___Ludo
             Ficha ficha = jugador.Fichas[indiceFichaJugador];
 
             avanza = true;
-            //Condicion si se selecciona una ficha de la casa
+
             if (ficha.EstaEnCasa && (movimientos == 6 || movimientos == 1))
             {
                 SacarFichaDeCasa(jugador, ficha);
@@ -146,7 +146,6 @@ namespace TPI_Programacion___Ludo
                 movimientos = 0;
                 return;
             }
-            // Movimiento fuera de la casa
             else
             {
                 if (!ficha.EnRF)
@@ -159,22 +158,14 @@ namespace TPI_Programacion___Ludo
                     {
                         ficha.PosicionFutura = jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionActual);
                     }
-                    else if(jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionActual) == Point.Empty)
+                    else if (jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionActual) == Point.Empty)
                     {
                         movimientos = 0;
                         jugador.Finalizados++;
-                        if(jugador.Finalizados == 4)
+                        if (jugador.Finalizados == 4)
                         {
                             FormularioGanador fg = new FormularioGanador((int)jugador.Color);
                             fg.ShowDialog();
-
-                            if (fg.Reiniciar)
-                            {
-                                ReiniciarJuego();
-                                return;
-                            }
-
-                            if (fg.VolverMenu) VolverMenuPrincipal();
                         }
                     }
                 }
@@ -274,60 +265,24 @@ namespace TPI_Programacion___Ludo
             }
 
         }
-        private void CambiarTurno()
-        {
-            switch (turnoActual)
-            {
-                case Turnos4Jugadores.Jugador1:
-                    turnoActual = Turnos4Jugadores.Jugador2;
-                    break;
-                case Turnos4Jugadores.Jugador2:
-                    turnoActual = Turnos4Jugadores.Jugador3;
-                    break;
-                case Turnos4Jugadores.Jugador3:
-                    turnoActual = Turnos4Jugadores.Jugador4;
-                    break;
-                case Turnos4Jugadores.Jugador4:
-                    turnoActual = Turnos4Jugadores.Jugador1;
-                    break;
-                default:
-                    break;
-            }
 
-            CambiarDado();
-            puedeSeleccionarDado = true;
-        }
         private void CambiarDado()
         {
             switch (turnoActual)
             {
-                case Turnos4Jugadores.Jugador1:
-                    dadoAzul.ImagenDado.Enabled = false;
-                    dadoAzul.ImagenDado.Image = null;
-
-                    dadoRojo.ImagenDado.Enabled = true;
-                    dadoRojo.ImagenDado.Image = Properties.Resources.Dado0;
-                    break;
-                case Turnos4Jugadores.Jugador2:
-                    dadoRojo.ImagenDado.Enabled = false;
-                    dadoRojo.ImagenDado.Image = null;
-
-                    dadoVerde.ImagenDado.Enabled = true;
-                    DadoVerde.ImagenDado.Image = Properties.Resources.Dado0;
-                    break;
-                case Turnos4Jugadores.Jugador3:
-                    dadoVerde.ImagenDado.Enabled = false;
-                    dadoVerde.ImagenDado.Image = null;
-
-                    dadoAmarillo.ImagenDado.Enabled = true;
-                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado0;
-                    break;
-                case Turnos4Jugadores.Jugador4:
+                case Turno2Jugadores.Jugador1:
                     dadoAmarillo.ImagenDado.Enabled = false;
                     dadoAmarillo.ImagenDado.Image = null;
 
-                    dadoAzul.ImagenDado.Enabled = true;
-                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado0;
+                    dadoRojo.ImagenDado.Enabled = true;
+                    dadoRojo.ImagenDado.Image = Properties.Resources.Dado1;
+                    break;
+                case Turno2Jugadores.Jugador2:
+                    dadoRojo.ImagenDado.Enabled = false;
+                    dadoRojo.ImagenDado.Image = null;
+
+                    dadoAmarillo.ImagenDado.Enabled = true;
+                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 default:
                     break;
@@ -343,20 +298,6 @@ namespace TPI_Programacion___Ludo
                     new Ficha(formulario.fichaRoja2, new Point(369, 81)),
                     new Ficha(formulario.fichaRoja3, new Point(291, 81))
                 });
-            JugadorVerde = new Jugador(new Point(561, 56),new Point(561, 14), Colores.Verde,
-                new Ficha[] {
-                    new Ficha(formulario.fichaVerde0, new Point(669, 159)),
-                    new Ficha(formulario.fichaVerde1, new Point(746, 159)),
-                    new Ficha(formulario.fichaVerde2, new Point(746, 81)),
-                    new Ficha(formulario.fichaVerde3, new Point(669, 81))
-                });
-            JugadorAzul = new Jugador(new Point(477, 560),new Point(477, 602), Colores.Azul,
-                new Ficha[] {
-                    new Ficha(formulario.fichaAzul0, new Point(291, 537)),
-                    new Ficha(formulario.fichaAzul1, new Point(369, 537)),
-                    new Ficha(formulario.fichaAzul2, new Point(369, 459)),
-                    new Ficha(formulario.fichaAzul3, new Point(291, 459))
-                });
             JugadorAmarillo = new Jugador(new Point(771, 350),new Point(813, 350), Colores.Amarillo,
                 new Ficha[] {
                     new Ficha(formulario.fichaAmarilla0, new Point(669, 537)),
@@ -368,10 +309,13 @@ namespace TPI_Programacion___Ludo
             fichas = new List<Ficha>();
 
             fichas.AddRange(jugadorRojo.Fichas);
-            fichas.AddRange(jugadorVerde.Fichas);
-            fichas.AddRange(jugadorAzul.Fichas);
             fichas.AddRange(jugadorAmarillo.Fichas);
         }
+
+        internal Jugador JugadorRojo { get => jugadorRojo; set => jugadorRojo = value; }
+        internal Jugador JugadorAmarillo { get => jugadorAmarillo; set => jugadorAmarillo = value; }
+        public Dado DadoRojo { get => dadoRojo; set => dadoRojo = value; }
+        public Dado DadoAmarillo { get => dadoAmarillo; set => dadoAmarillo = value; }
 
         public void cargarposSeguras()
         {
@@ -380,68 +324,6 @@ namespace TPI_Programacion___Ludo
             posicionesSeguras.AddLast(new Point(561, 518));//Estrella
             posicionesSeguras.AddLast(new Point(310, 350));//Estrella
         }
-
-        public void ReiniciarJuego() 
-        {
-            formulario = Program.formulario;
-
-            InstanciarJugadores();
-
-            recorrido = new Recorrido();
-            jugadores = new Jugador[]{
-                jugadorRojo, jugadorVerde,  jugadorAmarillo, jugadorAzul
-            };
-
-            timer = new Timer();
-            timer.Interval = 100;
-            timer.Tick += new EventHandler(Ontimer);
-
-            DadoRojo = new Dado(formulario.dadoJRojo);
-            DadoVerde = new Dado(formulario.dadoJVerde);
-            DadoAzul = new Dado(formulario.dadoJAzul);
-            DadoAmarillo = new Dado(formulario.dadoJAmarillo);
-
-            cargarposSeguras();
-
-            jugadorRojo.Fichas[0].Imagen.Location = JugadorRojo.Fichas[0].PosicionCasa;
-            JugadorRojo.Fichas[1].Imagen.Location = JugadorRojo.Fichas[1].PosicionCasa;
-            jugadorRojo.Fichas[2].Imagen.Location = JugadorRojo.Fichas[2].PosicionCasa;
-            jugadorRojo.Fichas[3].Imagen.Location = JugadorRojo.Fichas[3].PosicionCasa;
-
-            jugadorVerde.Fichas[0].Imagen.Location = JugadorVerde.Fichas[0].PosicionCasa;
-            jugadorVerde.Fichas[1].Imagen.Location = JugadorVerde.Fichas[1].PosicionCasa;
-            jugadorVerde.Fichas[2].Imagen.Location = JugadorVerde.Fichas[2].PosicionCasa;
-            jugadorVerde.Fichas[3].Imagen.Location = JugadorVerde.Fichas[3].PosicionCasa;
-            
-            jugadorAmarillo.Fichas[0].Imagen.Location = JugadorAmarillo.Fichas[0].PosicionCasa;
-            jugadorAmarillo.Fichas[1].Imagen.Location = JugadorAmarillo.Fichas[1].PosicionCasa;
-            jugadorAmarillo.Fichas[2].Imagen.Location = JugadorAmarillo.Fichas[2].PosicionCasa;
-            jugadorAmarillo.Fichas[3].Imagen.Location = JugadorAmarillo.Fichas[3].PosicionCasa;
-
-            jugadorAzul.Fichas[0].Imagen.Location = JugadorAzul.Fichas[0].PosicionCasa;
-            jugadorAzul.Fichas[1].Imagen.Location = JugadorAzul.Fichas[1].PosicionCasa;
-            jugadorAzul.Fichas[2].Imagen.Location = JugadorAzul.Fichas[2].PosicionCasa;
-            jugadorAzul.Fichas[3].Imagen.Location = JugadorAzul.Fichas[3].PosicionCasa;
-
-        }
-
-        public void VolverMenuPrincipal() 
-        {
-            ReiniciarJuego();
-            Program.formulario.ReiniciarNombres();
-            Program.formulario.Close();
-            Program.fp.Show();
-        }
-
-
-        internal Jugador JugadorRojo { get => jugadorRojo; set => jugadorRojo = value; }
-        internal Jugador JugadorAzul { get => jugadorAzul; set => jugadorAzul = value; }
-        internal Jugador JugadorAmarillo { get => jugadorAmarillo; set => jugadorAmarillo = value; }
-        internal Jugador JugadorVerde { get => jugadorVerde; set => jugadorVerde = value; }
-        public Dado DadoRojo { get => dadoRojo; set => dadoRojo = value; }
-        public Dado DadoVerde { get => dadoVerde; set => dadoVerde = value; }
-        public Dado DadoAzul { get => dadoAzul; set => dadoAzul = value; }
-        public Dado DadoAmarillo { get => dadoAmarillo; set => dadoAmarillo = value; }
     }
     
 }

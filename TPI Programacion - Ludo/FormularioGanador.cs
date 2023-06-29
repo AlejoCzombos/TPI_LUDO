@@ -13,6 +13,9 @@ namespace TPI_Programacion___Ludo
     public partial class FormularioGanador : Form
     {
 
+        private bool reiniciar;
+        private bool volverMenu;
+
         //Ubica las rutas de las imagenes a utilizar en el PictureBox en base al indice
         private String[] rutasImagenes = {
             Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Imagenes\\FichaRojaGanadora.png"),
@@ -21,14 +24,26 @@ namespace TPI_Programacion___Ludo
             Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Imagenes\\FichaCelesteGanadora.png"),
         };
 
+        public bool Reiniciar { get => reiniciar; set => reiniciar = value; }
+        public bool VolverMenu { get => volverMenu; set => volverMenu = value; }
+
         public FormularioGanador(int indice)
         {
             InitializeComponent();
             this.pictureBoxGanador.ImageLocation = rutasImagenes[indice];
+            this.Reiniciar = false;
+            this.VolverMenu = false;
         }
 
-        private void buttonAceptar_Click(object sender, EventArgs e)
+        private void buttonReiniciar_Click(object sender, EventArgs e)
         {
+            Reiniciar = true;
+            this.Close();
+        }
+
+        private void buttonVolverMenu_Click(object sender, EventArgs e)
+        {
+            VolverMenu = true;
             this.Close();
         }
     }

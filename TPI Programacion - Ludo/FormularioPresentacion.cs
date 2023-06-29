@@ -19,6 +19,8 @@ namespace TPI_Programacion___Ludo
         {
             InitializeComponent();
             seleccionColores = new FormularioSeleccionColores();
+            //this.Size = new Size(681, 1000);
+            //pictureBox1.Size = new Size(636, 636);
         }
 
         private void buttonEmpezar_Click(object sender, EventArgs e)
@@ -30,11 +32,6 @@ namespace TPI_Programacion___Ludo
             {
                 seleccionColores.CantidadJugadores = 1;
                 descripcion = "Jugador vs PC";
-            }
-            else if (radioButtonJvsJ.Checked)
-            {
-                seleccionColores.CantidadJugadores = 2;
-                descripcion = "Jugador vs Jugador";
             }
             else
             {

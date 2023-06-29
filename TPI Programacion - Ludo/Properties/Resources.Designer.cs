@@ -103,9 +103,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaAmarillaGrande {
+        internal static System.Drawing.Bitmap FichaAmarillaM {
             get {
-                object obj = ResourceManager.GetObject("FichaAmarillaGrande", resourceCulture);
+                object obj = ResourceManager.GetObject("FichaAmarillaM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaCelesteGrande {
+        internal static System.Drawing.Bitmap FichaAzulM {
             get {
-                object obj = ResourceManager.GetObject("FichaCelesteGrande", resourceCulture);
+                object obj = ResourceManager.GetObject("FichaAzulM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaRojaGrande {
+        internal static System.Drawing.Bitmap FichaRojaM {
             get {
-                object obj = ResourceManager.GetObject("FichaRojaGrande", resourceCulture);
+                object obj = ResourceManager.GetObject("FichaRojaM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FichaVerdeGrande {
+        internal static System.Drawing.Bitmap FichaVerdeM {
             get {
-                object obj = ResourceManager.GetObject("FichaVerdeGrande", resourceCulture);
+                object obj = ResourceManager.GetObject("FichaVerdeM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

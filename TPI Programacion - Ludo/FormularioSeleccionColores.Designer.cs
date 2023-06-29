@@ -69,92 +69,120 @@
             panel1.Controls.Add(pictureBoxC);
             panel1.Controls.Add(pictureBoxA);
             panel1.Controls.Add(pictureBoxV);
-            panel1.Location = new Point(12, 12);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Font = new Font("Pokemon Classic", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(484, 515);
+            panel1.Size = new Size(396, 372);
             panel1.TabIndex = 0;
             // 
             // buttonVolverAtras
             // 
-            buttonVolverAtras.Location = new Point(251, 459);
+            buttonVolverAtras.Anchor = AnchorStyles.None;
+            buttonVolverAtras.BackColor = SystemColors.ButtonFace;
+            buttonVolverAtras.Location = new Point(24, 290);
+            buttonVolverAtras.Margin = new Padding(2);
             buttonVolverAtras.Name = "buttonVolverAtras";
-            buttonVolverAtras.Size = new Size(142, 39);
+            buttonVolverAtras.Size = new Size(147, 54);
             buttonVolverAtras.TabIndex = 29;
             buttonVolverAtras.Text = "Volver atrás";
-            buttonVolverAtras.UseVisualStyleBackColor = true;
+            buttonVolverAtras.UseVisualStyleBackColor = false;
             buttonVolverAtras.Click += buttonVolverAtras_Click;
             // 
             // buttonContinuar
             // 
-            buttonContinuar.Location = new Point(97, 459);
+            buttonContinuar.Anchor = AnchorStyles.None;
+            buttonContinuar.BackColor = SystemColors.ButtonFace;
+            buttonContinuar.Location = new Point(224, 290);
+            buttonContinuar.Margin = new Padding(2);
             buttonContinuar.Name = "buttonContinuar";
-            buttonContinuar.Size = new Size(130, 39);
+            buttonContinuar.Size = new Size(147, 54);
             buttonContinuar.TabIndex = 28;
             buttonContinuar.Text = "Continuar";
-            buttonContinuar.UseVisualStyleBackColor = true;
+            buttonContinuar.UseVisualStyleBackColor = false;
             buttonContinuar.Click += buttonContinuar_Click;
             // 
             // labelSeleccion
             // 
+            labelSeleccion.Anchor = AnchorStyles.None;
             labelSeleccion.AutoSize = true;
-            labelSeleccion.Font = new Font("Segoe UI", 22F, FontStyle.Regular, GraphicsUnit.Point);
-            labelSeleccion.Location = new Point(54, 10);
+            labelSeleccion.Font = new Font("Pokemon Classic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelSeleccion.Location = new Point(24, 9);
+            labelSeleccion.Margin = new Padding(2, 0, 2, 0);
             labelSeleccion.Name = "labelSeleccion";
-            labelSeleccion.Size = new Size(388, 60);
+            labelSeleccion.Size = new Size(339, 34);
             labelSeleccion.TabIndex = 27;
             labelSeleccion.Text = "Selección de color:";
+            labelSeleccion.Click += labelSeleccion_Click;
             // 
             // labelRojo
             // 
+            labelRojo.Anchor = AnchorStyles.None;
             labelRojo.AutoSize = true;
-            labelRojo.Location = new Point(106, 121);
+            labelRojo.Location = new Point(74, 73);
+            labelRojo.Margin = new Padding(2, 0, 2, 0);
             labelRojo.Name = "labelRojo";
-            labelRojo.Size = new Size(121, 25);
+            labelRojo.Size = new Size(136, 18);
             labelRojo.TabIndex = 26;
             labelRojo.Text = "Jugador Rojo:";
+            labelRojo.Click += labelRojo_Click;
             // 
             // labelCeleste
             // 
+            labelCeleste.Anchor = AnchorStyles.None;
             labelCeleste.AutoSize = true;
-            labelCeleste.Location = new Point(106, 391);
+            labelCeleste.Location = new Point(74, 235);
+            labelCeleste.Margin = new Padding(2, 0, 2, 0);
             labelCeleste.Name = "labelCeleste";
-            labelCeleste.Size = new Size(141, 25);
+            labelCeleste.Size = new Size(165, 18);
             labelCeleste.TabIndex = 25;
             labelCeleste.Text = "Jugador Celeste:";
             // 
             // labelAmarillo
             // 
+            labelAmarillo.Anchor = AnchorStyles.None;
             labelAmarillo.AutoSize = true;
-            labelAmarillo.Location = new Point(106, 303);
+            labelAmarillo.Location = new Point(74, 182);
+            labelAmarillo.Margin = new Padding(2, 0, 2, 0);
             labelAmarillo.Name = "labelAmarillo";
-            labelAmarillo.Size = new Size(151, 25);
+            labelAmarillo.Size = new Size(164, 18);
             labelAmarillo.TabIndex = 24;
             labelAmarillo.Text = "Jugador Amarillo:";
             // 
             // labelVerde
             // 
+            labelVerde.Anchor = AnchorStyles.None;
             labelVerde.AutoSize = true;
-            labelVerde.Location = new Point(106, 212);
+            labelVerde.Location = new Point(74, 127);
+            labelVerde.Margin = new Padding(2, 0, 2, 0);
             labelVerde.Name = "labelVerde";
-            labelVerde.Size = new Size(130, 25);
+            labelVerde.Size = new Size(151, 18);
             labelVerde.TabIndex = 23;
             labelVerde.Text = "Jugador Verde:";
             // 
             // textBoxR
             // 
-            textBoxR.Location = new Point(272, 115);
+            textBoxR.Anchor = AnchorStyles.None;
+            textBoxR.BackColor = SystemColors.ButtonFace;
+            textBoxR.Location = new Point(252, 70);
+            textBoxR.Margin = new Padding(2);
             textBoxR.Name = "textBoxR";
-            textBoxR.Size = new Size(188, 31);
+            textBoxR.Size = new Size(133, 25);
             textBoxR.TabIndex = 22;
             textBoxR.MouseClick += textBox_MouseClick;
+            textBoxR.TextChanged += textBoxR_TextChanged;
             textBoxR.MouseLeave += textBox_MouseLeave;
             textBoxR.MouseMove += textBox_MouseMove;
             // 
             // textBoxC
             // 
-            textBoxC.Location = new Point(272, 385);
+            textBoxC.Anchor = AnchorStyles.None;
+            textBoxC.BackColor = SystemColors.ButtonFace;
+            textBoxC.Location = new Point(252, 232);
+            textBoxC.Margin = new Padding(2);
             textBoxC.Name = "textBoxC";
-            textBoxC.Size = new Size(188, 31);
+            textBoxC.Size = new Size(133, 25);
             textBoxC.TabIndex = 21;
             textBoxC.MouseClick += textBox_MouseClick;
             textBoxC.MouseLeave += textBox_MouseLeave;
@@ -162,9 +190,12 @@
             // 
             // textBoxA
             // 
-            textBoxA.Location = new Point(272, 297);
+            textBoxA.Anchor = AnchorStyles.None;
+            textBoxA.BackColor = SystemColors.ButtonFace;
+            textBoxA.Location = new Point(252, 179);
+            textBoxA.Margin = new Padding(2);
             textBoxA.Name = "textBoxA";
-            textBoxA.Size = new Size(188, 31);
+            textBoxA.Size = new Size(133, 25);
             textBoxA.TabIndex = 20;
             textBoxA.MouseClick += textBox_MouseClick;
             textBoxA.MouseLeave += textBox_MouseLeave;
@@ -172,57 +203,72 @@
             // 
             // textBoxV
             // 
-            textBoxV.Location = new Point(272, 212);
+            textBoxV.Anchor = AnchorStyles.None;
+            textBoxV.BackColor = SystemColors.ButtonFace;
+            textBoxV.Location = new Point(252, 124);
+            textBoxV.Margin = new Padding(2);
             textBoxV.Name = "textBoxV";
-            textBoxV.Size = new Size(188, 31);
+            textBoxV.Size = new Size(133, 25);
             textBoxV.TabIndex = 19;
             textBoxV.MouseClick += textBox_MouseClick;
+            textBoxV.TextChanged += textBoxV_TextChanged;
             textBoxV.MouseLeave += textBox_MouseLeave;
             textBoxV.MouseMove += textBox_MouseMove;
             // 
             // pictureBoxR
             // 
-            pictureBoxR.Image = Properties.Resources.FichaRojaGrande;
-            pictureBoxR.Location = new Point(13, 83);
+            pictureBoxR.Anchor = AnchorStyles.None;
+            pictureBoxR.Image = Properties.Resources.FichaRojaM;
+            pictureBoxR.Location = new Point(9, 50);
+            pictureBoxR.Margin = new Padding(0);
             pictureBoxR.Name = "pictureBoxR";
-            pictureBoxR.Size = new Size(87, 87);
+            pictureBoxR.Size = new Size(51, 54);
             pictureBoxR.TabIndex = 18;
             pictureBoxR.TabStop = false;
+            pictureBoxR.Click += pictureBoxR_Click;
             // 
             // pictureBoxC
             // 
-            pictureBoxC.Image = Properties.Resources.FichaCelesteGrande;
-            pictureBoxC.Location = new Point(13, 362);
+            pictureBoxC.Anchor = AnchorStyles.None;
+            pictureBoxC.Image = Properties.Resources.FichaAzulM;
+            pictureBoxC.Location = new Point(9, 217);
+            pictureBoxC.Margin = new Padding(2);
             pictureBoxC.Name = "pictureBoxC";
-            pictureBoxC.Size = new Size(87, 87);
+            pictureBoxC.Size = new Size(51, 52);
             pictureBoxC.TabIndex = 17;
             pictureBoxC.TabStop = false;
             // 
             // pictureBoxA
             // 
-            pictureBoxA.Image = Properties.Resources.FichaAmarillaGrande;
-            pictureBoxA.Location = new Point(13, 269);
+            pictureBoxA.Anchor = AnchorStyles.None;
+            pictureBoxA.Image = Properties.Resources.FichaAmarillaM;
+            pictureBoxA.Location = new Point(9, 161);
+            pictureBoxA.Margin = new Padding(2);
             pictureBoxA.Name = "pictureBoxA";
-            pictureBoxA.Size = new Size(87, 87);
+            pictureBoxA.Size = new Size(51, 52);
             pictureBoxA.TabIndex = 16;
             pictureBoxA.TabStop = false;
             // 
             // pictureBoxV
             // 
-            pictureBoxV.Image = Properties.Resources.FichaVerdeGrande;
-            pictureBoxV.Location = new Point(13, 176);
+            pictureBoxV.Anchor = AnchorStyles.None;
+            pictureBoxV.Image = Properties.Resources.FichaVerdeM;
+            pictureBoxV.Location = new Point(9, 106);
+            pictureBoxV.Margin = new Padding(2);
             pictureBoxV.Name = "pictureBoxV";
-            pictureBoxV.Size = new Size(87, 87);
+            pictureBoxV.Size = new Size(51, 52);
             pictureBoxV.TabIndex = 15;
             pictureBoxV.TabStop = false;
             // 
             // FormularioSeleccionColores
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(508, 539);
+            BackColor = SystemColors.ControlDark;
+            ClientSize = new Size(396, 372);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Name = "FormularioSeleccionColores";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ludo.NET";
