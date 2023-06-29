@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            panelImagen = new Panel();
             buttonAceptar = new Button();
             pictureBoxGanador = new PictureBox();
-            panel1.SuspendLayout();
+            panelImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxGanador).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // panelImagen
             // 
-            panel1.Controls.Add(buttonAceptar);
-            panel1.Controls.Add(pictureBoxGanador);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(435, 385);
-            panel1.TabIndex = 0;
+            panelImagen.Controls.Add(buttonAceptar);
+            panelImagen.Controls.Add(pictureBoxGanador);
+            panelImagen.Dock = DockStyle.Fill;
+            panelImagen.Location = new Point(0, 0);
+            panelImagen.Name = "panelImagen";
+            panelImagen.Size = new Size(435, 385);
+            panelImagen.TabIndex = 0;
             // 
             // buttonAceptar
             // 
@@ -71,18 +71,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(435, 385);
             ControlBox = false;
-            Controls.Add(panel1);
+            Controls.Add(panelImagen);
             Name = "FormularioGanador";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "¡Felicidades, finalizaste el recorrido!";
-            panel1.ResumeLayout(false);
+            panelImagen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxGanador).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelImagen;
         private Button buttonAceptar;
         private PictureBox pictureBoxGanador;
     }

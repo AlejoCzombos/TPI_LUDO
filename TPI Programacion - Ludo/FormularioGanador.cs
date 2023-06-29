@@ -14,7 +14,7 @@ namespace TPI_Programacion___Ludo
     {
 
         //Ubica las rutas de las imagenes a utilizar en el PictureBox en base al indice
-        private String[] rutasImagenes = { 
+        private String[] rutasImagenes = {
             Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Imagenes\\FichaRojaGanadora.png"),
             Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Imagenes\\FichaVerdeGanadora.png"),
             Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "Imagenes\\FichaAmarillaGanadora.png"),
