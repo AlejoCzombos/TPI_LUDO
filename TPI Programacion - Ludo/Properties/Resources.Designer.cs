@@ -83,6 +83,16 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FichaAmarillaGanadora {
+            get {
+                object obj = ResourceManager.GetObject("FichaAmarillaGanadora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FichaAmarillaGrande {
             get {
                 object obj = ResourceManager.GetObject("FichaAmarillaGrande", resourceCulture);
