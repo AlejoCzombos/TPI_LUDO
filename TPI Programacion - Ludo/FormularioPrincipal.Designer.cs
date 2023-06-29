@@ -141,7 +141,7 @@
             // 
             dadoJRojo.BackColor = Color.Transparent;
             dadoJRojo.Cursor = Cursors.Hand;
-            dadoJRojo.Image = Properties.Resources.Dado1;
+            dadoJRojo.Image = Properties.Resources.Dado0;
             dadoJRojo.Location = new Point(133, 90);
             dadoJRojo.Name = "dadoJRojo";
             dadoJRojo.Size = new Size(68, 68);

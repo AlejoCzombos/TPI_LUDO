@@ -63,6 +63,16 @@ namespace TPI_Programacion___Ludo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dado0 {
+            get {
+                object obj = ResourceManager.GetObject("Dado0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dado1 {
             get {
                 object obj = ResourceManager.GetObject("Dado1", resourceCulture);

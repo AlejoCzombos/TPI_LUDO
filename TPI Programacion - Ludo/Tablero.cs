@@ -36,6 +36,7 @@ namespace TPI_Programacion___Ludo
         private Dado dadoVerde;
         private Dado dadoAzul;
         private Dado dadoAmarillo;
+        private Dado dadoActual;
 
         private List<Ficha> fichas;
         private Jugador[] jugadores;
@@ -63,9 +64,7 @@ namespace TPI_Programacion___Ludo
             };
 
             timer = new Timer();
-
-            //BORRAR
-            timer.Interval = 1000;
+            timer.Interval = 400;
             timer.Tick += new EventHandler(Ontimer);
 
             DadoRojo = new Dado(formulario.dadoJRojo);
@@ -99,10 +98,9 @@ namespace TPI_Programacion___Ludo
             if (puedeSeleccionarDado)
             {
                 dado.tirarDado();
-                movimientos = dado.Numero;
+                dadoActual = dado;
 
-                //BORRAR
-                //movimientos = 6;
+                movimientos = dado.Numero;
 
                 puedeSeleccionarFicha = true;
                 puedeSeleccionarDado = false;
@@ -122,6 +120,8 @@ namespace TPI_Programacion___Ludo
             if (puedeSeleccionarFicha)
             {
                 indiceFichaJugador = indiceFicha;
+
+                dadoActual.TurnoCero();
 
                 timer.Start();
 
@@ -258,20 +258,43 @@ namespace TPI_Programacion___Ludo
         private void MoverFichaNormal(Jugador jugador, Ficha ficha)
         {
             //Si sale 6 o 1 tiene otro turno
-            if (movimientos == 6 || movimientos == 1 && esPrimerMovimiento)
+            if (movimientos == 6 && esPrimerMovimiento)
             {
                 puedeSeleccionarDado = true;
                 puedeCambiarTurno = false;
             }
+            jugador.PrimeraPosicionOcupada = false;
         }
         private void SacarFichaDeCasa(Jugador jugador, Ficha ficha)
         {
-            ficha.PosicionFutura = jugador.PrimeraPosicion;
-            ficha.EstaEnCasa = false;
-            movimientos = 1;
+            //pregunta si la primera posicion no esta ocupada
+            if (!jugador.PrimeraPosicionOcupada)
+            {
+                ficha.PosicionFutura = jugador.PrimeraPosicion;
+                ficha.EstaEnCasa = false;
+                movimientos = 1;
 
-            puedeSeleccionarDado = true;
-            puedeCambiarTurno = false;
+                puedeSeleccionarDado = true;
+                puedeCambiarTurno = false;
+                jugador.PrimeraPosicionOcupada = true;
+            }
+            else 
+            {
+                if (ficha.EstaEnCasa)
+                {
+                    ficha.PosicionFutura = ficha.PosicionActual;
+                    puedeSeleccionarDado = false;
+                    puedeCambiarTurno = true;
+                    return;
+                }
+                else if (!ficha.EstaEnCasa && jugador.PrimeraPosicionOcupada) 
+                {
+                    jugador.PrimeraPosicionOcupada = false;
+                    puedeSeleccionarDado = true;
+                    puedeCambiarTurno = false;
+                }
+            }
+
         }
 
         private void CambiarDado()
@@ -283,28 +306,28 @@ namespace TPI_Programacion___Ludo
                     dadoAzul.ImagenDado.Image = null;
 
                     dadoRojo.ImagenDado.Enabled = true;
-                    dadoRojo.ImagenDado.Image = Properties.Resources.Dado1;
+                    dadoRojo.ImagenDado.Image = Properties.Resources.Dado0;
                     break;
                 case Turnos4Jugadores.Jugador2:
                     dadoRojo.ImagenDado.Enabled = false;
                     dadoRojo.ImagenDado.Image = null;
 
                     dadoVerde.ImagenDado.Enabled = true;
-                    DadoVerde.ImagenDado.Image = Properties.Resources.Dado1;
+                    DadoVerde.ImagenDado.Image = Properties.Resources.Dado0;
                     break;
                 case Turnos4Jugadores.Jugador3:
                     dadoVerde.ImagenDado.Enabled = false;
                     dadoVerde.ImagenDado.Image = null;
 
                     dadoAmarillo.ImagenDado.Enabled = true;
-                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
+                    dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado0;
                     break;
                 case Turnos4Jugadores.Jugador4:
                     dadoAmarillo.ImagenDado.Enabled = false;
                     dadoAmarillo.ImagenDado.Image = null;
 
                     dadoAzul.ImagenDado.Enabled = true;
-                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado1;
+                    dadoAzul.ImagenDado.Image = Properties.Resources.Dado0;
                     break;
                 default:
                     break;

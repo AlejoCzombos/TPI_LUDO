@@ -21,19 +21,24 @@ namespace TPI_Programacion___Ludo
 
         private String[] ObtenerPaths()
         {
-            String[] paths = new String[6];
-            for(int i = 0; i < 6; i++)
+            String[] paths = new String[7];
+            for(int i = 0; i <= 6; i++)
             {
-                paths[i] = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, $"Imagenes\\Dado{(i+1)}.png");
+                paths[i] = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, $"Imagenes\\Dado{(i)}.png");
             }
             return paths;
+        }
+
+        public void TurnoCero()
+        {
+            imagenDado.ImageLocation = pathsImagenes[0];
         }
 
         public void tirarDado()
         {
             int resultado = rnd.Next(1, 7);
 
-            imagenDado.ImageLocation = pathsImagenes[(resultado - 1)];
+            imagenDado.ImageLocation = pathsImagenes[(resultado)];
             numero = resultado;
         }
 	}

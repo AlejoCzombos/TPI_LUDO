@@ -14,6 +14,7 @@ namespace TPI_Programacion___Ludo
         private Colores color;
         private Point primeraPosicion;
         private RecorridoFinal recorridoFinal;
+        private bool primeraPosicionOcupada;
         private int finalizados;
 
         public Jugador( Point primeraPosicion,Point posicionFinal,Colores color, Ficha[] fichas)
@@ -28,12 +29,14 @@ namespace TPI_Programacion___Ludo
                 ficha.PosicionFinal = posicionFinal;
             }
             this.RecorridoFinal = new RecorridoFinal(color);
+            this.primeraPosicionOcupada = false;
             this.Finalizados = 0;
         }
         public Ficha[] Fichas { get => fichas; }
         public Point PrimeraPosicion { get => primeraPosicion; set => primeraPosicion = value; }
         public Colores Color { get => color; set => color = value; }
         public int Finalizados { get => finalizados; set => finalizados = value; }
+        public bool PrimeraPosicionOcupada { get => primeraPosicionOcupada; set => primeraPosicionOcupada = value; }
         internal RecorridoFinal RecorridoFinal { get => recorridoFinal; set => recorridoFinal = value; }
     }
 }
