@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\alejo\\.nuget\\packages\\": {}
+    "C:\\Users\\Matias Barboza\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+      "projectUniqueName": "C:\\Users\\Matias Barboza\\source\\repos\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
       "projectName": "TPI Programacion - Ludo",
-      "projectPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
-      "packagesPath": "C:\\Users\\alejo\\.nuget\\packages\\",
-      "outputPath": "C:\\Alejo\\Programacion\\C#\\TPI_LUDO\\TPI Programacion - Ludo\\obj\\",
+      "projectPath": "C:\\Users\\Matias Barboza\\source\\repos\\TPI_LUDO\\TPI Programacion - Ludo\\TPI Programacion - Ludo.csproj",
+      "packagesPath": "C:\\Users\\Matias Barboza\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Matias Barboza\\source\\repos\\TPI_LUDO\\TPI Programacion - Ludo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alejo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Matias Barboza\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
