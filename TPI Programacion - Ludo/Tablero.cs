@@ -46,10 +46,11 @@ namespace TPI_Programacion___Ludo
         private LinkedList<Point> posicionesSeguras = new LinkedList<Point>();
         
 
-        int numeroDado = 0;
+        int movimientos = 0;
         int indiceFichaJugador;
 
-        bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true, puedeCambiaTurno = false;
+        bool avanza, puedeSeleccionarFicha = false, puedeSeleccionarDado = true, puedeCambiarTurno = false;
+        bool esPrimerMovimiento;
         public Tablero()
         {
             formulario = Program.formulario;
@@ -75,14 +76,15 @@ namespace TPI_Programacion___Ludo
 
         private void Ontimer(object sender, EventArgs e)
         {
-            if (numeroDado > 0)
+            if (movimientos > 0)
             {
                 MoverFicha();
                 return;
             }
+
             timer.Stop();
 
-            if (puedeCambiaTurno)
+            if (puedeCambiarTurno)
             {
                 CambiarTurno();
             }
@@ -90,25 +92,35 @@ namespace TPI_Programacion___Ludo
 
         public void TirarDado(Dado dado)
         {
+            Jugador jugador = jugadores[(int)turnoActual];
+
             if (puedeSeleccionarDado)
             {
                 dado.tirarDado();
-                numeroDado = dado.Numero;
+                movimientos = dado.Numero;
 
                 puedeSeleccionarFicha = true;
                 puedeSeleccionarDado = false;
+
+                //Si todas las fichas estan en la casa y no sale un 1 o 6 se pasa el turno
+                if (jugador.Fichas.All(x => x.EstaEnCasa) && movimientos != 1 && movimientos != 6)
+                {
+                    puedeCambiarTurno = true;
+                    timer.Start();
+                    return;
+                }
             }
         }
 
         public void SeleccionarFicha(int indiceFicha)
         {
-            //TODO: QUE SE LLAME AL METODO DE MOVER FICHA DEPENDIENDO DEL TURNO DEL JUGADOR
-            //provisoriamente se va a llamar al jugadorRojo
             if (puedeSeleccionarFicha)
             {
                 indiceFichaJugador = indiceFicha;
+
                 timer.Start();
 
+                esPrimerMovimiento = true;
                 puedeSeleccionarFicha = false;
             }
         }
@@ -145,24 +157,32 @@ namespace TPI_Programacion___Ludo
 
             avanza = true;
 
-            if (ficha.EstaEnCasa && (numeroDado == 6 || numeroDado == 1))
+            if (ficha.EstaEnCasa && (movimientos == 6 || movimientos == 1))
             {
                 ficha.PosicionFutura = jugador.PrimeraPosicion;
                 ficha.EstaEnCasa = false;
-                numeroDado = 1;
+                movimientos = 1;
 
                 puedeSeleccionarDado = true;
-                puedeCambiaTurno = false;
+                puedeCambiarTurno = false;
             }
-            else if(ficha.EstaEnCasa && (numeroDado > 1 && numeroDado < 6))
+            //Controlar si se selecciona una ficha de la casa sin sacar 1 o 6
+            else if(ficha.EstaEnCasa && (movimientos > 1 && movimientos < 6))
             {
-                puedeCambiaTurno = true;
-                numeroDado = 0;
+                puedeCambiarTurno = true;
+                movimientos = 0;
                 return;
             }
             else
             {
                 ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
+                
+                //Si sale 6 o 1 tiene otro turno
+                if (movimientos == 6 || movimientos == 1 && esPrimerMovimiento)
+                {
+                    puedeSeleccionarDado = true;
+                    puedeCambiarTurno = false;
+                }
             }
 
             //Recorremos la lista de fichas para hacer las comprobaciones de comer o pasar
@@ -177,17 +197,17 @@ namespace TPI_Programacion___Ludo
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color == fi.Color)
                 {
                     //Comprueba si tiene mas de un movimiento para saber si puede pasar a la ficha del mismo color
-                    if (numeroDado > 1) avanza = true;
+                    if (movimientos > 1) avanza = true;
                     else { 
                     avanza = false;
-                    numeroDado = 0;
+                    movimientos = 0;
                     }
                     break;
                 }
                 //Compueba si en la posicion futura hay una ficha del otro color
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color != fi.Color)
                 {
-                    if (numeroDado == 1)
+                    if (movimientos == 1)
                     {
                         if(posicionesSeguras.Any(x => x == fi.PosicionActual))
                         {
@@ -208,18 +228,19 @@ namespace TPI_Programacion___Ludo
             //Si la posicion futura esta libre se avanza
             if (avanza)
             {
+                esPrimerMovimiento = false;
                 ficha.PosicionActual = ficha.PosicionFutura;
-
                 ficha.Imagen.Location = ficha.PosicionActual;
-                numeroDado--;
+                movimientos--;
 
-                if(numeroDado == 0 && ficha.PosicionActual == jugador.PrimeraPosicion)
+                if(movimientos == 0 && ficha.PosicionActual == jugador.PrimeraPosicion)
                 {
                     puedeSeleccionarDado = true;
                 }
-                else
+
+                if(!puedeSeleccionarDado)
                 {
-                    puedeCambiaTurno = true;
+                   puedeCambiarTurno = true;
                 }
             }
 
