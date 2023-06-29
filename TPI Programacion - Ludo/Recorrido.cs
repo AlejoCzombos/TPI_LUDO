@@ -8,7 +8,7 @@ namespace TPI_Programacion___Ludo
 {
     public class Recorrido
     {
-        private LinkedList<Point> posiciones;
+        protected LinkedList<Point> posiciones;
         public Recorrido()
         {
             posiciones = new LinkedList<Point>();

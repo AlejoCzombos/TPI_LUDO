@@ -44,7 +44,7 @@ namespace TPI_Programacion___Ludo
 
         //lista de posiciones donde no se pueden comer
         private LinkedList<Point> posicionesSeguras = new LinkedList<Point>();
-
+        
 
         int movimientos = 0;
         int indiceFichaJugador;
@@ -63,7 +63,9 @@ namespace TPI_Programacion___Ludo
             };
 
             timer = new Timer();
-            timer.Interval = 500;
+
+            //BORRAR
+            timer.Interval = 1000;
             timer.Tick += new EventHandler(Ontimer);
 
             DadoRojo = new Dado(formulario.dadoJRojo);
@@ -98,6 +100,9 @@ namespace TPI_Programacion___Ludo
             {
                 dado.tirarDado();
                 movimientos = dado.Numero;
+
+                //BORRAR
+                //movimientos = 6;
 
                 puedeSeleccionarFicha = true;
                 puedeSeleccionarDado = false;
@@ -156,7 +161,7 @@ namespace TPI_Programacion___Ludo
             Ficha ficha = jugador.Fichas[indiceFichaJugador];
 
             avanza = true;
-
+            
             if (ficha.EstaEnCasa && (movimientos == 6 || movimientos == 1))
             {
                 SacarFichaDeCasa(jugador, ficha);
@@ -170,7 +175,25 @@ namespace TPI_Programacion___Ludo
             }
             else
             {
-                MoverFichaNormal(jugador, ficha);
+                if (!ficha.EnRF) ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
+                else
+                {
+                    if (jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionActual) != Point.Empty)
+                        ficha.PosicionFutura = jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionActual);
+                    else
+                    {
+                        jugador.Finalizados++;
+                    } 
+                }
+
+
+                //if (ficha.PosicionFutura == ficha.PosicionFinal)
+                if (ficha.PosicionFutura == ficha.PosicionFinal && !ficha.EnRF)
+                {
+                    ficha.EnRF = true;
+                    ficha.PosicionFutura = jugador.RecorridoFinal.ProximaPosicionRF(ficha.PosicionFutura);
+                }
+                else MoverFichaNormal(jugador, ficha);
             }
 
             //Recorremos la lista de fichas para hacer las comprobaciones de comer o pasar
@@ -234,8 +257,6 @@ namespace TPI_Programacion___Ludo
 
         private void MoverFichaNormal(Jugador jugador, Ficha ficha)
         {
-            ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
-
             //Si sale 6 o 1 tiene otro turno
             if (movimientos == 6 || movimientos == 1 && esPrimerMovimiento)
             {
@@ -258,8 +279,8 @@ namespace TPI_Programacion___Ludo
             switch (turnoActual)
             {
                 case Turnos4Jugadores.Jugador1:
-                    dadoAzul.ImagenDado.Image = null;
                     dadoAzul.ImagenDado.Enabled = false;
+                    dadoAzul.ImagenDado.Image = null;
 
                     dadoRojo.ImagenDado.Enabled = true;
                     dadoRojo.ImagenDado.Image = Properties.Resources.Dado1;
@@ -279,8 +300,8 @@ namespace TPI_Programacion___Ludo
                     dadoAmarillo.ImagenDado.Image = Properties.Resources.Dado1;
                     break;
                 case Turnos4Jugadores.Jugador4:
-                    dadoAmarillo.ImagenDado.Image = null;
                     dadoAmarillo.ImagenDado.Enabled = false;
+                    dadoAmarillo.ImagenDado.Image = null;
 
                     dadoAzul.ImagenDado.Enabled = true;
                     dadoAzul.ImagenDado.Image = Properties.Resources.Dado1;
@@ -292,28 +313,28 @@ namespace TPI_Programacion___Ludo
 
         private void InstanciarJugadores()
         {
-            JugadorRojo = new Jugador(new Point(268, 266), Colores.Rojo,
+            JugadorRojo = new Jugador(new Point(268, 266),new Point(226,266), Colores.Rojo,
                 new Ficha[] {
                     new Ficha(formulario.fichaRoja0, new Point(291, 159)),
                     new Ficha(formulario.fichaRoja1, new Point(369, 159)),
                     new Ficha(formulario.fichaRoja2, new Point(369, 81)),
                     new Ficha(formulario.fichaRoja3, new Point(291, 81))
                 });
-            JugadorVerde = new Jugador(new Point(561, 56), Colores.Verde,
+            JugadorVerde = new Jugador(new Point(561, 56),new Point(561, 14), Colores.Verde,
                 new Ficha[] {
                     new Ficha(formulario.fichaVerde0, new Point(669, 159)),
                     new Ficha(formulario.fichaVerde1, new Point(746, 159)),
                     new Ficha(formulario.fichaVerde2, new Point(746, 81)),
                     new Ficha(formulario.fichaVerde3, new Point(669, 81))
                 });
-            JugadorAzul = new Jugador(new Point(477, 560), Colores.Azul,
+            JugadorAzul = new Jugador(new Point(477, 560),new Point(477, 602), Colores.Azul,
                 new Ficha[] {
                     new Ficha(formulario.fichaAzul0, new Point(291, 537)),
                     new Ficha(formulario.fichaAzul1, new Point(369, 537)),
                     new Ficha(formulario.fichaAzul2, new Point(369, 459)),
                     new Ficha(formulario.fichaAzul3, new Point(291, 459))
                 });
-            JugadorAmarillo = new Jugador(new Point(771, 350), Colores.Amarillo,
+            JugadorAmarillo = new Jugador(new Point(771, 350),new Point(813, 350), Colores.Amarillo,
                 new Ficha[] {
                     new Ficha(formulario.fichaAmarilla0, new Point(669, 537)),
                     new Ficha(formulario.fichaAmarilla1, new Point(746, 537)),

@@ -20,8 +20,10 @@ namespace TPI_Programacion___Ludo
         private Point posicionActual;
         private Point posicionCasa;
         private Point posicionFutura;
+        private Point posicionFinal;
         private bool estaEnCasa = true;
         private bool enJuego = true;
+        private bool enRF = false;
 
         public Ficha(PictureBox imagen, Point posicionCasa)
         {
@@ -37,5 +39,7 @@ namespace TPI_Programacion___Ludo
         public Point PosicionCasa { get => posicionCasa; set => posicionCasa = value; }
         public Colores Color { get => color; set => color = value; }
         public Point PosicionFutura { get => posicionFutura; set => posicionFutura = value; }
+        public Point PosicionFinal { get => posicionFinal; set => posicionFinal = value; }
+        public bool EnRF { get => enRF; set => enRF = value; }
     }
 }
