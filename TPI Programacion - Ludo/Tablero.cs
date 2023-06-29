@@ -44,7 +44,7 @@ namespace TPI_Programacion___Ludo
 
         //lista de posiciones donde no se pueden comer
         private LinkedList<Point> posicionesSeguras = new LinkedList<Point>();
-        
+
 
         int movimientos = 0;
         int indiceFichaJugador;
@@ -159,15 +159,10 @@ namespace TPI_Programacion___Ludo
 
             if (ficha.EstaEnCasa && (movimientos == 6 || movimientos == 1))
             {
-                ficha.PosicionFutura = jugador.PrimeraPosicion;
-                ficha.EstaEnCasa = false;
-                movimientos = 1;
-
-                puedeSeleccionarDado = true;
-                puedeCambiarTurno = false;
+                SacarFichaDeCasa(jugador, ficha);
             }
             //Controlar si se selecciona una ficha de la casa sin sacar 1 o 6
-            else if(ficha.EstaEnCasa && (movimientos > 1 && movimientos < 6))
+            else if (ficha.EstaEnCasa && (movimientos > 1 && movimientos < 6))
             {
                 puedeCambiarTurno = true;
                 movimientos = 0;
@@ -175,14 +170,7 @@ namespace TPI_Programacion___Ludo
             }
             else
             {
-                ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
-                
-                //Si sale 6 o 1 tiene otro turno
-                if (movimientos == 6 || movimientos == 1 && esPrimerMovimiento)
-                {
-                    puedeSeleccionarDado = true;
-                    puedeCambiarTurno = false;
-                }
+                MoverFichaNormal(jugador, ficha);
             }
 
             //Recorremos la lista de fichas para hacer las comprobaciones de comer o pasar
@@ -190,17 +178,16 @@ namespace TPI_Programacion___Ludo
             {
                 //Comprobacion de comer fichas
                 if (ficha == fi)
-                {
                     continue;
-                }
+
                 //Comprobar si en la posicion futura hay una ficha del mismo color
                 else if (ficha.PosicionFutura == fi.PosicionActual && ficha.Color == fi.Color)
                 {
                     //Comprueba si tiene mas de un movimiento para saber si puede pasar a la ficha del mismo color
                     if (movimientos > 1) avanza = true;
-                    else { 
-                    avanza = false;
-                    movimientos = 0;
+                    else {
+                        avanza = false;
+                        movimientos = 0;
                     }
                     break;
                 }
@@ -209,7 +196,7 @@ namespace TPI_Programacion___Ludo
                 {
                     if (movimientos == 1)
                     {
-                        if(posicionesSeguras.Any(x => x == fi.PosicionActual))
+                        if (posicionesSeguras.Contains(fi.PosicionActual))
                         {
                             avanza = false;
                             break;
@@ -223,8 +210,6 @@ namespace TPI_Programacion___Ludo
                 }
             }
 
-
-
             //Si la posicion futura esta libre se avanza
             if (avanza)
             {
@@ -233,18 +218,39 @@ namespace TPI_Programacion___Ludo
                 ficha.Imagen.Location = ficha.PosicionActual;
                 movimientos--;
 
-                if(movimientos == 0 && ficha.PosicionActual == jugador.PrimeraPosicion)
+                if (movimientos == 0 && ficha.PosicionActual == jugador.PrimeraPosicion)
                 {
                     puedeSeleccionarDado = true;
                 }
 
-                if(!puedeSeleccionarDado)
+                if (!puedeSeleccionarDado)
                 {
-                   puedeCambiarTurno = true;
+                    puedeCambiarTurno = true;
                 }
             }
 
-            
+
+        }
+
+        private void MoverFichaNormal(Jugador jugador, Ficha ficha)
+        {
+            ficha.PosicionFutura = recorrido.ProximaPosicion(ficha.PosicionActual);
+
+            //Si sale 6 o 1 tiene otro turno
+            if (movimientos == 6 || movimientos == 1 && esPrimerMovimiento)
+            {
+                puedeSeleccionarDado = true;
+                puedeCambiarTurno = false;
+            }
+        }
+        private void SacarFichaDeCasa(Jugador jugador, Ficha ficha)
+        {
+            ficha.PosicionFutura = jugador.PrimeraPosicion;
+            ficha.EstaEnCasa = false;
+            movimientos = 1;
+
+            puedeSeleccionarDado = true;
+            puedeCambiarTurno = false;
         }
 
         private void CambiarDado()
